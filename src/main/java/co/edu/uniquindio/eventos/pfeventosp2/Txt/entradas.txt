@@ -1,0 +1,4 @@
+ENT-001@@@Z001@@@VIP-A-1@@@Vendido@@@Parqueadero:20000|Souvenir:45000:Camiseta Oficial
+ENT-002@@@Z001@@@VIP-A-2@@@Vendido@@@AccesoRapido:15000
+ENT-003@@@Z002@@@NULL@@@Disponible@@@Alimentacion:30000:Combo Perro Caliente
+ENT-004@@@Z003@@@PLA-A-1@@@Vendido@@@Ninguno

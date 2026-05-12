@@ -1,0 +1,3 @@
+INC-001@@@TECNICA@@@Error al procesar el pago con Nequi@@@2024-05-01T14:32:00.500@@@COMPRA@@@COM-001
+INC-002@@@LOGISTICA@@@Retraso en la apertura de puertas del estadio@@@2024-05-10T18:00:00.000@@@EVENTO@@@E001
+INC-003@@@TECNICA@@@El usuario no pudo recuperar su contraseña@@@2024-05-11T08:20:15.123@@@USUARIO@@@2002

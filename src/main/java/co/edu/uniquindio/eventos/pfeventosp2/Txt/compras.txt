@@ -1,0 +1,3 @@
+COM-001@@@2001@@@E001@@@2024-05-01T14:30:00@@@580000.0@@@EstadoPagada@@@ENT-001,ENT-002@@@Parqueadero,Souvenir,AccesoRapido
+COM-002@@@2002@@@E002@@@2024-05-02T16:45:00@@@120000.0@@@EstadoCreada@@@ENT-004@@@Ninguno
+COM-003@@@2001@@@E001@@@2024-05-03T09:15:00@@@0.0@@@EstadoCancelada@@@Vacio@@@Ninguno

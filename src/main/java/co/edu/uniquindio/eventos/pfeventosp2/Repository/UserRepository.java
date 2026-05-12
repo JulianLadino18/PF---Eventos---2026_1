@@ -8,14 +8,18 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class UserRepository {
+    //atributos
+    private String rutaUsers = "src/main/java/co/edu/uniquindio/eventos/pfeventosp2/Txt/users.txt";
     private static UserRepository instancia;
     private static ArrayList<Persona> personas;
 
+    //método para que cada que se inicialice el repositorio se lea el archivo txt
     private UserRepository() {
         personas = new ArrayList<>();
         readArchive();
     }
 
+    //patron singleton
     public static UserRepository getInstance() {
         if (instancia == null) {
             instancia = new UserRepository();
@@ -28,7 +32,7 @@ public class UserRepository {
     }
 
     private void readArchive() {
-        try (BufferedReader lector = new BufferedReader(new FileReader("src/main/java/co/edu/uniquindio/eventos/pfeventosp2/Txt/users.txt"))) {
+        try (BufferedReader lector = new BufferedReader(new FileReader(rutaUsers))) {
             String linea;
             while ((linea = lector.readLine()) != null) {
                 String[] bloques = linea.split(";");
@@ -60,7 +64,7 @@ public class UserRepository {
     }
 
     public void updateArchive() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/java/co/edu/uniquindio/eventos/pfeventosp2/Txt/users.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaUsers))) {
             for (Persona p : personas) {
                 StringBuilder sb = new StringBuilder();
                 if (p instanceof Admin) {
