@@ -10,29 +10,23 @@ public class Usuario extends Persona{
     private List<Compra> historialCompras;
 
     //constructor
-    public Usuario(String id, String nombre, String correo, String password, String telefono) {
-        super(id, nombre, correo, password);
+    public Usuario(RoleUser role,String id, String nombre, String correo, String password, String telefono) {
+        super(role ,id, nombre, correo, password);
         this.telefono = telefono;
         this.metodosPago = new ArrayList<>();
         this.historialCompras = new ArrayList<>();
     }
 
     //getters y setters
-    public String getTelefono() {
-        return telefono;
-    }
-
+    public String getTelefono() { return telefono; }
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    public ArrayList<String> getMetodosPago() {
-        return metodosPago;
-    }
-
+    public ArrayList<String> getMetodosPago() { return metodosPago; }
     public void setMetodosPago(ArrayList<String> metodosPago) {
         this.metodosPago = metodosPago;
     }
+
 
     //método para gestionar métodos de pago
     //agregar billetera virtual
@@ -90,4 +84,5 @@ public class Usuario extends Persona{
                 ", metodosPago=" + metodosPago +
                 '}';
     }
+
 }

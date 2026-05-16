@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-public class AdminDashboardController {
+public class ClientDashboardController {
     @FXML
     private Button btnRegisterClient;
     @FXML

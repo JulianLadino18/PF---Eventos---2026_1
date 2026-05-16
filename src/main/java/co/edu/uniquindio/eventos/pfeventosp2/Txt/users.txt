@@ -2,3 +2,4 @@ ADMIN;1001;Admin #1;admin@eventos.com;1234
 CLIENTE;2001;Maria Lopez;maria@gmail.com;abcd;3101234567;Visa,Nequi
 CLIENTE;2002;Carlos Ruiz;carlos@hotmail.com;hola;3209876543;
 ADMIN;777;Carlos Admin;carlos@admin.com;admin123
+CLIENTE;1234;Raul;raul@yo.com;1234;123123123123;

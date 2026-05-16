@@ -27,8 +27,8 @@ public class PlataformaEventos {
     //constructor
     private PlataformaEventos() {
         //aquí se inicializan los repositorios
-        this.eventoRepo = new EventoRepository();
-        this.recintoRepo = new RecintoRepository();
+        this.eventoRepo = EventoRepository.getInstance();
+        this.recintoRepo = RecintoRepository.getInstance();
 
         //aquí se cargan los usuarios y los admins desde el repositorio
         this.listaPersonas = UserRepository.getInstance().getPersonas();

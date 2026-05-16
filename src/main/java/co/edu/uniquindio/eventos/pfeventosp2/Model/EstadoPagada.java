@@ -21,7 +21,7 @@ public class EstadoPagada implements EstadoCompra{
     }
 
     @Override
-    public void removerBoleto(Compra compra, Entrada boleto) {
+    public void quitarBoleto(Compra compra, Entrada boleto) {
         //como la compra ya está pagada, no se pueden quitar boletos
         System.out.println("No se pueden quitar boletos de una compra que ya fue pagada.");
     }

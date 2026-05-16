@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="458.0" prefWidth="328.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.LoginController">
+   <children>
+      <Label layoutX="87.0" layoutY="38.0" text="Inicio de Sesión">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtMail" layoutX="141.0" layoutY="139.0" promptText="exaple@gmail.com" />
+      <Button fx:id="btnIngresar" layoutX="121.0" layoutY="288.0" mnemonicParsing="false" onAction="#onGoClient" text="Iniciar Sesión" />
+      <Label layoutX="57.0" layoutY="221.0" text="Contraseña" />
+      <Label layoutX="68.0" layoutY="143.0" text="Correo" />
+      <Button fx:id="btnRegistrar" layoutX="127.0" layoutY="365.0" mnemonicParsing="false" onAction="#onGoClientRegister" text="Registrarme" />
+      <PasswordField fx:id="txtPassword" layoutX="142.0" layoutY="216.0" />
+   </children>
+</AnchorPane>
