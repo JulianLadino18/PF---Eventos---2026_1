@@ -1,2 +1,2 @@
-E001@@@Concierto Rock Quindio@@@Concierto@@@Publicado@@@R001@@@ReembolsoTotal
-E002@@@Obra de Teatro Hamlet@@@Cultura@@@Borrador@@@R002@@@SinReembolso
+E001@@@Concierto Rock Quindio@@@Concierto@@@El concierto mas inceible Dios mio@@@Armenia@@@2026-05-30@@@20:00@@@Publicado@@@R001@@@ReembolsoTotal
+E002@@@Obra de Teatro de Shakespeare@@@Teatro@@@Una obra clásica de Shakespeare en vivo@@@Armenia@@@2026-06-15@@@18:30@@@Borrador@@@R002@@@SinReembolso

@@ -30,8 +30,12 @@ public class EventoRepository {
             String linea = evento.getIdEvento() + "@@@" +
                     evento.getNombre() + "@@@" +
                     evento.getCategoria() + "@@@" +
+                    evento.getDescripcion() + "@@@" +
+                    evento.getCiudad() + "@@@" +
+                    evento.getFecha() + "@@@" +
+                    evento.getHora() + "@@@" +
                     evento.getEstado() + "@@@" +
-                    evento.getRecinto().getIdRecinto() + "@@@" + // Solo el ID del recinto
+                    evento.getRecinto().getIdRecinto() + "@@@" +  // Solo el ID del recinto
                     evento.getPolitica().getClass().getSimpleName(); // El nombre de la estrategia
             pw.println(linea);
         }
@@ -46,16 +50,20 @@ public class EventoRepository {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String linea;
             while ((linea = br.readLine()) != null) {
+                if (linea.trim().isEmpty()) continue; // Ignora líneas vacías
+
                 String[] datos = linea.split("@@@");
 
-                //aquí se busca el recinto por ID en la lista
-                Recinto r = buscarRecinto(datos[4], recintosDisponibles);
+                // Buscar el objeto Recinto completo usando el ID guardado en la posición 8
+                Recinto r = buscarRecinto(datos[8], recintosDisponibles);
 
-                //aquí se reconstruye la política (patrón Strategy)
-                PoliticaCancelacion p = crearPolitica(datos[5]);
+                // Reconstruir estrategia de cancelación usando el nombre de la clase en la posición 9
+                PoliticaCancelacion p = crearPolitica(datos[9]);
 
-                Evento e = new Evento(datos[0], datos[1], datos[2], "Desc...", "Ciudad...", "Fecha", "Hora", p, r);
-                e.cambiarEstado(datos[3]);
+                // instanciar el objeto con todos los datos que dio el admin
+                Evento e = new Evento(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], p, r);
+                e.cambiarEstado(datos[7]);
+
                 lista.add(e);
             }
         }
