@@ -2,6 +2,7 @@ package co.edu.uniquindio.eventos.pfeventosp2.Repository;
 
 import co.edu.uniquindio.eventos.pfeventosp2.Model.Admin;
 import co.edu.uniquindio.eventos.pfeventosp2.Model.Persona;
+import co.edu.uniquindio.eventos.pfeventosp2.Model.RoleUser;
 import co.edu.uniquindio.eventos.pfeventosp2.Model.Usuario;
 
 import java.io.*;
@@ -32,21 +33,22 @@ public class UserRepository {
     }
 
     private void readArchive() {
-        try (BufferedReader lector = new BufferedReader(new FileReader(rutaUsers))) {
+        try (BufferedReader lector = new BufferedReader(new FileReader("src/main/java/co/edu/uniquindio/eventos/pfeventosp2/Txt/users.txt"))) {
             String linea;
             while ((linea = lector.readLine()) != null) {
+                if (linea.trim().isEmpty()) continue;
                 String[] bloques = linea.split(";");
-                String tipo = bloques[0];
+                RoleUser rol = RoleUser.valueOf(bloques[0].toUpperCase());
                 String id = bloques[1];
                 String nombre = bloques[2];
                 String correo = bloques[3];
                 String password = bloques[4];
 
-                if (tipo.equals("ADMIN")) {
-                    personas.add(new Admin(id, nombre, correo, password));
-                } else if (tipo.equals("CLIENTE")) {
+                if (rol == RoleUser.ADMIN) {
+                    personas.add(new Admin(rol,id, nombre, correo, password));
+                } else if (rol == RoleUser.CLIENTE) {
                     String telefono = bloques[5];
-                    Usuario u = new Usuario(id, nombre, correo, password, telefono);
+                    Usuario u = new Usuario(rol,id, nombre, correo, password, telefono);
                     if (bloques.length > 6 && !bloques[6].isEmpty()) {
                         String[] pagos = bloques[6].split(",");
                         for (String pago : pagos) {

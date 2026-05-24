@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientDashboardController">
+   <children>
+      <VBox layoutX="23.0" layoutY="30.0" prefHeight="660.0" prefWidth="270.0" style="-fx-background-color: #919399; -fx-alignment: top_center; -fx-spacing: 15;">
+         <children>
+            <Region prefHeight="80.0" prefWidth="168.0" />
+            <Button mnemonicParsing="false" onAction="#onGoEvents" prefHeight="50.0" prefWidth="168.0" text="EVENTOS" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Button>
+            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="HISTORIAL" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#onGoProfile" prefHeight="50.0" prefWidth="168.0" text="PERFIL" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Button>
+            <Region prefHeight="227.0" prefWidth="270.0" />
+            <Button mnemonicParsing="false" onAction="#onCloseDashboard" prefHeight="50.0" prefWidth="168.0" text="CERRAR SESION" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="contenedorC" layoutX="328.0" layoutY="95.0" prefHeight="596.0" prefWidth="721.0" />
+      <Label layoutX="332.0" layoutY="40.0" text="Pagina Inicio" textFill="RED">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
