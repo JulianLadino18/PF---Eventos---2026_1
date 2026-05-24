@@ -84,4 +84,26 @@ public class IncidenciaRepository {
         }
         return filtradas;
     }
+
+    //Método para eliminar una incidencia y actualizar el txt
+    public void eliminarIncidenciaEnArchivo(String idIncidencia) throws IOException {
+        //Cargamos todas las incidencias actuales
+        List<Incidencia> todas = cargarIncidencias();
+
+        //Filtramos la que queremos eliminar
+        todas.removeIf(i -> i.getIdIncidencia().equals(idIncidencia));
+
+        //Sobrescribimos el archivo con la lista resultante
+        try (PrintWriter pw = new PrintWriter(new FileWriter(rutaIncidencias))) {
+            for (Incidencia inc : todas) {
+                String linea = inc.getIdIncidencia() + "@@@" +
+                        inc.getTipo() + "@@@" +
+                        inc.getDescripcion() + "@@@" +
+                        inc.getFecha().toString() + "@@@" +
+                        inc.getTipoEntidadAfectada() + "@@@" +
+                        inc.getIdEntidadAfectada();
+                pw.println(linea);
+            }
+        }
+    }
 }

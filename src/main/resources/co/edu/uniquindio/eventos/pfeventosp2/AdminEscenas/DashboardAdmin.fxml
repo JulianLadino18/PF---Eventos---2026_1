@@ -8,52 +8,57 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.AdminDashboardController">
+<AnchorPane prefHeight="720.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.AdminDashboardController">
    <children>
-      <VBox fx:id="menu" layoutX="18.0" layoutY="24.0" prefHeight="660.0" prefWidth="270.0" style="-fx-background-color: #919399; -fx-alignment: top_center; -fx-spacing: 15;" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="792.0" AnchorPane.topAnchor="24.0">
+      <VBox fx:id="menu" layoutX="18.0" layoutY="24.0" prefHeight="660.0" prefWidth="303.0" style="-fx-background-color: #919399; -fx-alignment: top_center; -fx-spacing: 15;" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="979.0" AnchorPane.topAnchor="24.0">
          <children>
-            <Button fx:id="dashboardButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Dashboard">
+            <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#onDashboard" prefHeight="50.0" prefWidth="168.0" text="Dashboard">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
-            <Button fx:id="eventosButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Eventos">
+            <Button fx:id="eventosButton" mnemonicParsing="false" onAction="#onEventos" prefHeight="50.0" prefWidth="168.0" text="Eventos">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
-            <Button fx:id="recintosButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Recintos">
+            <Button fx:id="recintosButton" mnemonicParsing="false" onAction="#onRecintos" prefHeight="50.0" prefWidth="168.0" text="Recintos">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
-            <Button fx:id="usuariosButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Usuarios">
+            <Button fx:id="usuariosButton" mnemonicParsing="false" onAction="#onUsuarios" prefHeight="50.0" prefWidth="168.0" text="Usuarios">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
-            <Button fx:id="incidenciasButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Incidencias">
+            <Button fx:id="adminsButton" mnemonicParsing="false" onAction="#onAdmins" prefHeight="50.0" prefWidth="168.0" text="Admins">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="incidenciasButton" mnemonicParsing="false" onAction="#onIncidencias" prefHeight="50.0" prefWidth="168.0" text="Incidencias">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
             <Region prefHeight="48.0" prefWidth="230.0" />
-            <Button fx:id="cerrarSesionButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Cerrar Sesión">
+            <Button fx:id="cerrarSesionButton" mnemonicParsing="false" onAction="#onCerrarSesion" prefHeight="50.0" prefWidth="168.0" text="Cerrar Sesión">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
-            <Button fx:id="perfilButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Perfil">
+            <Button fx:id="perfilButton" mnemonicParsing="false" onAction="#onPerfil" prefHeight="50.0" prefWidth="168.0" text="Perfil">
                <font>
                   <Font size="23.0" />
                </font>
             </Button>
          </children>
          <padding>
-            <Insets left="20.0" right="20.0" top="90.0" />
+            <Insets left="20.0" right="20.0" top="50.0" />
          </padding>
       </VBox>
-      <AnchorPane fx:id="contenido" layoutX="308.0" layoutY="77.0" prefHeight="604.0" prefWidth="746.0">
+      <AnchorPane fx:id="contenido" layoutX="343.0" layoutY="77.0" prefHeight="604.0" prefWidth="931.0">
          <children>
             <Text fill="#4d5e9e" layoutX="126.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resumen General">
                <font>
@@ -61,12 +66,12 @@
                </font>
             </Text>
          </children></AnchorPane>
-      <Text fill="#392748" layoutX="735.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Admin">
+      <Text fill="#392748" layoutX="982.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Admin">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Text fill="#392748" layoutX="978.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha">
+      <Text fill="#392748" layoutX="1162.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha">
          <font>
             <Font size="22.0" />
          </font>

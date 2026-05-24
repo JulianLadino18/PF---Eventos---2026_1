@@ -1,2 +1,3 @@
 R001@@@Estadio Centenario@@@Avenida Bolivar@@@Armenia
 R002@@@Teatro Azul@@@Cra 13 # 11-45@@@Armenia
+R003@@@ejemplo@@@carrera ej@@@ciudad ej
