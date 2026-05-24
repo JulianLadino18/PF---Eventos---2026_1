@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.NuevoAdminController">
+    <Text fill="#4d5e9e" layoutX="40.0" layoutY="50.0" text="Registrar Administrador">
+        <font>
+            <Font name="System Bold" size="22.0"/>
+        </font>
+    </Text>
+
+    <TextField fx:id="idField" layoutX="150.0" layoutY="80.0" prefWidth="200.0" promptText="ID único"/>
+    <TextField fx:id="nombreField" layoutX="150.0" layoutY="120.0" prefWidth="200.0" promptText="Nombre completo"/>
+    <TextField fx:id="correoField" layoutX="150.0" layoutY="160.0" prefWidth="200.0" promptText="Correo electrónico"/>
+    <TextField fx:id="passwordField" layoutX="150.0" layoutY="200.0" prefWidth="200.0" promptText="Contraseña"/>
+
+    <Button layoutX="150.0" layoutY="280.0" onAction="#onCancelar" text="Cancelar"/>
+    <Button layoutX="250.0" layoutY="280.0" onAction="#onGuardar"
+            style="-fx-background-color: #4d5e9e; -fx-text-fill: white;" text="Guardar"/>
+
+    <Text layoutX="40.0" layoutY="98.0" text="ID:"/>
+    <Text layoutX="40.0" layoutY="138.0" text="Nombre:"/>
+    <Text layoutX="40.0" layoutY="178.0" text="Correo:"/>
+    <Text layoutX="40.0" layoutY="218.0" text="Contraseña:"/>
+</AnchorPane>

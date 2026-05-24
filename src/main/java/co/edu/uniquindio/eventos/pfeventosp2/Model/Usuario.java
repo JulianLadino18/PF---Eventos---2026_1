@@ -77,6 +77,26 @@ public class Usuario extends Persona{
         }
     }
 
+    public void agregarCompra(Compra compra) {
+        this.historialCompras.add(compra);
+    }
+
+    // Asegúrate de que el getter exista
+    public List<Compra> getHistorialCompras() {
+        return historialCompras;
+    }
+
+    //Método para calcular el total gastado por el usuario
+    public double getTotalGastado() {
+        double total = 0.0;
+        if (historialCompras != null) {
+            for (Compra compra : historialCompras) {
+                total += compra.getTotal();
+            }
+        }
+        return total;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" + super.toString() +

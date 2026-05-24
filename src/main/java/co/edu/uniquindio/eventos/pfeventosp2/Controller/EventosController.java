@@ -350,6 +350,49 @@ public class EventosController {
         }
     }
 
+    @FXML
+    void onMapa(ActionEvent event) {
+        //Obtener el evento seleccionado de la tabla
+        Evento seleccionado = tblEventos.getSelectionModel().getSelectedItem();
+
+        //Validar que el administrador haya seleccionado un evento
+        if (seleccionado == null) {
+            mostrarAlerta("Atención", "Por favor, selecciona un evento de la tabla para ver su disponibilidad.");
+            return;
+        }
+
+        //Validar que el evento tenga un recinto asignado
+        if (seleccionado.getRecinto() == null) {
+            mostrarAlerta("Atención", "Este evento aún no tiene un recinto asignado.");
+            return;
+        }
+
+        try {
+            //Cargar la vista del mapa de asientos que creamos hace un momento
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/MapaAsientosEvento.fxml"));
+            Parent root = loader.load();
+
+            //Obtener el controlador del mapa y pasarle el evento seleccionado
+            MapaAsientosEventoController controller = loader.getController();
+            controller.setEventoData(seleccionado);
+
+            //Configurar y mostrar la nueva ventana
+            Stage stage = new Stage();
+            stage.setTitle("Mapa de Disponibilidad");
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(tblEventos.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+
+            //Refrescar la tabla cuando se cierre la ventana
+            tblEventos.refresh();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo abrir el mapa de asientos: " + e.getMessage());
+        }
+    }
+
     //Método para mostrar alertas simples al usuario
     private void mostrarAlerta(String titulo, String mensaje) {
         // Definimos el tipo de alerta por defecto como INFORMACIÓN
@@ -369,6 +412,5 @@ public class EventosController {
         // Mostramos la alerta y esperamos a que el usuario la cierre (showAndWait)cite: [cite: 1, 2]
         alerta.showAndWait();
     }
-
 
 }

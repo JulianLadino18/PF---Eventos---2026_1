@@ -48,6 +48,27 @@ public class Zona {
         return asientos;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPrecioBase(double precioBase) {
+        this.precioBase = precioBase;
+    }
+
+    //Si cambian la capacidad o los asientos por fila, se regeneran los asientos
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+        this.asientos.clear(); //Se limpian los viejos
+        generarAsientos();     //Se genera la nueva cuadrícula
+    }
+
+    public void setAsientosPorFila(int asientosPorFila) {
+        this.asientosPorFila = asientosPorFila;
+        this.asientos.clear();
+        generarAsientos();
+    }
+
 
     //método para administrar asientos por zona
     public void agregarAsiento(Asiento asiento) {
