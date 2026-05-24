@@ -2,7 +2,6 @@ package co.edu.uniquindio.eventos.pfeventosp2.Controller;
 
 import co.edu.uniquindio.eventos.pfeventosp2.Model.Evento;
 import co.edu.uniquindio.eventos.pfeventosp2.Model.PlataformaEventos;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -17,7 +16,6 @@ import javafx.event.ActionEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -252,7 +250,7 @@ public class EventosController {
         try {
             //Cargar el archivo FXML de la escena de Edición
             // AJUSTAR RUTA SI ES NECESARIO.
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/EditarEvento.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/EditarEvento.fxml"));
             Parent root = loader.load(); //Carga la escena y genera el controlador
             //Obtener la instancia del controlador de Edición automáticamente
             EditarEventoController controllerEdicion = loader.getController();
@@ -285,7 +283,7 @@ public class EventosController {
     void onNuevoEvento(ActionEvent event) {
         try {
             //Cargar el archivo FXML de la escena de Nuevo Evento
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/NuevoEvento.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/NuevoEvento.fxml"));
             Parent root = loader.load();
 
             //Configurar la nueva ventana (Stage) como Modal
