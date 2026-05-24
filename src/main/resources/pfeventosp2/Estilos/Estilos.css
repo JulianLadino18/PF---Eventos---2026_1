@@ -1,0 +1,101 @@
+Label{
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Mozilla";
+    -fx-font-size: 14px;
+}
+.login-bg{
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-image: url(Imagenes/bg-dark.png);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0.2, 0, 4);
+}
+.llogin-content{
+    -fx-background-color: #051523;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+
+}
+.login-text{
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Mozilla";
+   -fx-font-size: 28px ;
+    -fx-font-weight: bold;
+    -fx-fill-height: 15px;
+}
+.login-specialtext{
+    -fx-text-fill: #f5b236;
+    -fx-font-family: "fantasy";
+    -fx-font-size: 28px ;
+    -fx-font-weight: bold;
+    -fx-fill-height: 15px;
+}
+.login-card{
+    -fx-background-color: linear-gradient(transparent,rgba(0, 0, 0, 0.8));
+}
+.tittle{
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+}
+.legend{
+    -fx-text-fill: #646363;
+}
+TextField, PasswordField {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-background-color: #1d222f;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-border-insets: 0;
+    -fx-border-radius: 2;
+    -fx-pref-height: 35px;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0  2px 0 ;
+}
+TextField:focused, PasswordField:focused{
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-background-color: #293141;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-border-insets: 0;
+    -fx-border-radius: 2;
+    -fx-pref-height: 35px;
+    -fx-border-color: #f5b236;
+    -fx-border-width: 0 0  2px 0 ;
+}
+
+.register-button{
+    -fx-text-fill: #f5b236;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.register-button:hover,.register-button:focused{
+    -fx-text-fill: #ad7f1f;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.btn{
+    -fx-text-fill: #051523;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 35px;
+    -fx-background-color: #f5b236;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-border-insets: 0;
+    -fx-border-radius: 2;
+
+}
+.btn:hover,btn:focused{
+    -fx-text-fill: #051523;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 35px;
+    -fx-background-color: #ad7f1f;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-border-insets: 0;
+    -fx-border-radius: 2;
+
+}
