@@ -27,8 +27,8 @@ public class PlataformaEventos {
     //constructor
     private PlataformaEventos() {
         //aquí se inicializan los repositorios
-        this.eventoRepo = new EventoRepository();
-        this.recintoRepo = new RecintoRepository();
+        this.eventoRepo = EventoRepository.getInstance();
+        this.recintoRepo = RecintoRepository.getInstance();
 
         //aquí se cargan los usuarios y los admins desde el repositorio
         this.listaPersonas = UserRepository.getInstance().getPersonas();
@@ -96,4 +96,25 @@ public class PlataformaEventos {
         listaRecintos.add(recinto);
         recintoRepo.guardarRecinto(recinto);
     }
+
+    //Método de lógica que actualiza el estado
+    public void actualizarEstadoEventoEnPersistencia(Evento eventoSeleccionado, String nuevoEstado) throws IOException {
+        eventoSeleccionado.cambiarEstado(nuevoEstado);
+        //Llamar al repositorio para guardar el cambio en el TXT
+        EventoRepository.getInstance().actualizarEvento(eventoSeleccionado);
+    }
+
+    //Método de lógica que actualiza el Evento
+    public void actualizarEventoEnPersistencia(Evento eventoSeleccionado) throws IOException {
+        //Llamar al repositorio para guardar el cambio en el TXT
+        EventoRepository.getInstance().actualizarEvento(eventoSeleccionado);
+    }
+
+    public void eliminarEvento(Evento evento) throws IOException {
+        //Eliminar de la lista en memoria
+        listaEventos.remove(evento);
+        //Eliminar del archivo de texto
+        EventoRepository.getInstance().eliminarEventoEnArchivo(evento.getIdEvento());
+    }
+
 }

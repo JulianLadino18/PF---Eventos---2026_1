@@ -22,7 +22,7 @@ public class EstadoCreada implements EstadoCompra{
     public void agregarBoleto(Compra compra, Entrada boleto) {
         compra.getItemsCompra().add(boleto);
         //después de añadir el boleto también se tiene que aumentar el precio final de la compra
-        double nuevoTotal = compra.getTotal() + boleto.getPrecio();
+        double nuevoTotal = compra.getTotal() + boleto.getPrecioFinal();
         compra.setTotal(nuevoTotal);
         System.out.println("Boleto agregado. Precio final: $" + nuevoTotal);
     }
@@ -32,7 +32,7 @@ public class EstadoCreada implements EstadoCompra{
         //primero se tiene que verificar si el boleto está dentro de la compra, y si está se elimina
         if (compra.getItemsCompra().remove(boleto)) {
             //depsués de quitar la boleta se le tiene que restar el precio al precio final de la compra
-            double nuevoTotal = compra.getTotal() - boleto.getPrecio();
+            double nuevoTotal = compra.getTotal() - boleto.getPrecioFinal();
             compra.setTotal(nuevoTotal);
             System.out.println("Boleto eliminado. Nuevo total: $" + nuevoTotal);
         } else {

@@ -7,7 +7,7 @@ public class Evento {
     //atributos
     private String idEvento;
     private String nombre;
-    private String categoria;
+    private String categoria; //pueden ser: Concierto, Teatro, Cultura, Deporte, Conferencia, Festival, Taller
     private String descripcion;
     private String ciudad;
     private String fecha;
@@ -32,7 +32,7 @@ public class Evento {
         this.ciudad = ciudad;
         this.fecha = fecha;
         this.hora = hora;
-        this.estado = "BORRADOR";
+        this.estado = "Borrador";
         this.politica = politica;
         this.recinto = recinto;
         this.clientesInscritos = new ArrayList<>();
@@ -84,6 +84,45 @@ public class Evento {
         this.politica = nuevaPolitica;
     }
 
+    public void setIdEvento(String idEvento) {
+        this.idEvento = idEvento;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setClientesInscritos(List<ObservadorEvento> clientesInscritos) {
+        this.clientesInscritos = clientesInscritos;
+    }
+
+    public void setRecinto(Recinto recinto) {
+        this.recinto = recinto;
+    }
 
     //métodos del patrón observer
     public void agregarObservador(ObservadorEvento cliente) {
@@ -124,4 +163,14 @@ public class Evento {
         }
     }
 
+     //Getter para retornar el nombre del recinto
+    public String getNombreRecinto() {
+        //Si el objeto recinto asociado no es nulo, devolvemos su nombre.
+        if (this.recinto != null) {
+            return this.recinto.getNombre();
+        } else {
+            //Si no hay recinto asociado, devolvemos un valor por defecto.
+            return "N/A";
+        }
+    }
 }

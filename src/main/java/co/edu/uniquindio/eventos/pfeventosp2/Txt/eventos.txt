@@ -1,2 +1,2 @@
-E001@@@Concierto Rock Quindio@@@Concierto@@@Publicado@@@R001@@@ReembolsoTotal
-E002@@@Obra de Teatro Hamlet@@@Cultura@@@Borrador@@@R002@@@SinReembolso
+E001@@@Concierto Rock Quindio@@@Concierto@@@Evento anual de rock en el Quindío.@@@Armenia@@@20-06-2026@@@19:00@@@ReembolsoTotal@@@R001@@@Publicado
+E002@@@Obra de Teatro Hamlet@@@Teatro@@@El clásico de Shakespeare interpretado por el grupo de teatro local.@@@Calarcá@@@15-08-2026@@@18:00@@@SinReembolso@@@R002@@@Borrador

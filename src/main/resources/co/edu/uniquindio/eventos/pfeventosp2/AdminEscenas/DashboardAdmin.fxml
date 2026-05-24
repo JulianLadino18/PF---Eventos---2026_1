@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.AdminDashboardController">
    <children>
       <VBox fx:id="menu" layoutX="18.0" layoutY="24.0" prefHeight="660.0" prefWidth="270.0" style="-fx-background-color: #919399; -fx-alignment: top_center; -fx-spacing: 15;" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="792.0" AnchorPane.topAnchor="24.0">
@@ -54,11 +53,23 @@
             <Insets left="20.0" right="20.0" top="90.0" />
          </padding>
       </VBox>
-      <Text fill="#4d5e9e" layoutX="337.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resumen General">
+      <AnchorPane fx:id="contenido" layoutX="308.0" layoutY="77.0" prefHeight="604.0" prefWidth="746.0">
+         <children>
+            <Text fill="#4d5e9e" layoutX="126.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resumen General">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+      <Text fill="#392748" layoutX="735.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Admin">
          <font>
-            <Font name="System Bold" size="37.0" />
+            <Font size="22.0" />
          </font>
       </Text>
-      <AnchorPane fx:id="contenido" layoutX="302.0" layoutY="78.0" prefHeight="604.0" prefWidth="746.0" />
+      <Text fill="#392748" layoutX="978.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
