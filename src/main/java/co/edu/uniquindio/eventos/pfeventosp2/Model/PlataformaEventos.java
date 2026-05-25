@@ -38,7 +38,7 @@ public class PlataformaEventos {
             this.listaEventos = eventoRepo.cargarEventos(listaRecintos);
 
             //Cargar las compras para vincularlas a los usuarios
-            //Necesitamos todas las listas para cargar las compras correctamente
+            //Se necesitan todas las listas para cargar las compras correctamente
             List<Usuario> usuarios = new ArrayList<>();
             for(Persona p : listaPersonas) {
                 if(p instanceof Usuario) usuarios.add((Usuario) p);
@@ -155,14 +155,14 @@ public class PlataformaEventos {
     public void vincularComprasAUsuarios() {
         List<Compra> todasLasCompras = CompraRepository.getInstance().getListaCompras();
 
-        //Limpiamos el historial por si acaso ya estaban vinculadas
+        //Limpiar el historial por si acaso ya estaban vinculadas
         for (Persona p : listaPersonas) {
             if (p instanceof Usuario) {
                 ((Usuario) p).getHistorialCompras().clear();
             }
         }
 
-        //Vinculamos cada compra al usuario correcto
+        //Vincular cada compra al usuario correcto
         for (Compra c : todasLasCompras) {
             Usuario u = c.getUsuario();
             if (u != null) {
@@ -172,7 +172,7 @@ public class PlataformaEventos {
     }
 
     public void bloquearAsiento(Evento evento, Zona zona, Asiento asiento) throws IOException {
-        //Cambiamos el estado en el objeto en memoria
+        //Cambiar el estado en el objeto en memoria
         asiento.setEstado("BLOQUEADO");
         //Guardar en el archivo de bloqueos
         BloqueoRepository.getInstance().guardarBloqueo(asiento.getIdAsiento());

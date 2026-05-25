@@ -1,4 +1,4 @@
-ADMIN;AD1001;Admin #1;admin@eventos.com;1234
+ADMIN;AD1001;Admin #1;admin@eventos.com;123
 CLIENTE;CL2001;Maria Lopez;maria@gmail.com;abcd;3101234567;Visa,Nequi
 CLIENTE;CL2002;Carlos Ruiz;carlos@hotmail.com;hola;3209876543;
 ADMIN;AD1002;Carlos Admin;carlos@admin.com;admin123
