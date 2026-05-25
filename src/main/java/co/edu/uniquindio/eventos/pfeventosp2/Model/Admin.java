@@ -6,7 +6,6 @@ public class Admin extends Persona{
         super(role,id, nombre, correo, password);
     }
 
-
     @Override
     public String toString() {
         return "Admin{" +

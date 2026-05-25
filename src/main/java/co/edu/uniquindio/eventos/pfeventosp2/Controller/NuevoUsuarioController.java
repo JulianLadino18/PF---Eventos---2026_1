@@ -61,6 +61,7 @@ public class NuevoUsuarioController {
 
         //Crear nuevo objeto Usuario
         Usuario nuevoUsuario = new Usuario(
+                RoleUser.CLIENTE,
                 idField.getText(),
                 nombreField.getText(),
                 correoField.getText(),

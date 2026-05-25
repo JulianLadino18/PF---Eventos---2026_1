@@ -2,6 +2,7 @@ package co.edu.uniquindio.eventos.pfeventosp2.Controller;
 
 import co.edu.uniquindio.eventos.pfeventosp2.Model.Admin;
 import co.edu.uniquindio.eventos.pfeventosp2.Model.Persona;
+import co.edu.uniquindio.eventos.pfeventosp2.Model.RoleUser;
 import co.edu.uniquindio.eventos.pfeventosp2.Repository.UserRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,6 +62,7 @@ public class NuevoAdminController {
 
         //Creamos la instancia de Admin
         Admin nuevoAdmin = new Admin(
+                RoleUser.ADMIN,
                 idField.getText(),
                 nombreField.getText(),
                 correoField.getText(),
