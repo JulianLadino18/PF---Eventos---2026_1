@@ -23,7 +23,7 @@ public class ClientPaymentController {
     private SistemaReservaFacade fachada;
 
     private double subtotalBase = 0.0;
-    private boolean decoradoresYaAplicados = false; // Evita cobrar doble si un pago falla la primera vez
+    private boolean decoradoresYaAplicados = false;
 
     @FXML
     public void initialize() {
@@ -88,7 +88,8 @@ public class ClientPaymentController {
 
             // Reemplazar entrada cmun por la decorada
             boletos.set(i, entradaFisica);
-            totalDecorado += entradaFisica.getPrecioFinal(); // sumar nuevo precio
+            // sumar nuevo precio
+            totalDecorado += entradaFisica.getPrecioFinal();
         }
 
         // Actualizar la compra

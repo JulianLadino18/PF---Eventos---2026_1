@@ -22,7 +22,7 @@ public class ClientEntranceController {
 
     private Evento eventoSeleccionado;
 
-    // Aquí guardaremos las entradas reales que el usuario vaya clickeando
+    // guardar lo que clickea el usuario
     private List<Entrada> carritoEntradas = new ArrayList<>();
 
     public void inicializarEvento(Evento evento) {

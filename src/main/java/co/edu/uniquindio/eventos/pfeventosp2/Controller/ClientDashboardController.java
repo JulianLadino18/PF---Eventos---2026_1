@@ -88,6 +88,8 @@ public class ClientDashboardController {
         }
     }
 
+    //Metodo que usan todos las escenas para cambiar las vistas
+
     public FXMLLoader cambiarVistaCentral(String rutaFxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFxml));
@@ -101,7 +103,7 @@ public class ClientDashboardController {
             AnchorPane.setLeftAnchor(nuevaVista, 0.0);
             AnchorPane.setRightAnchor(nuevaVista, 0.0);
 
-            return loader; // <- NUEVO: Retorna el cargador listo
+            return loader;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
