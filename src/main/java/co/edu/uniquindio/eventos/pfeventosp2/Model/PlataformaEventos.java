@@ -49,12 +49,7 @@ public class PlataformaEventos {
             for (Recinto r : listaRecintos) {
                 todasLasZonas.addAll(r.getZonas());
             }
-
             List<Entrada> todasLasEntradas = EntradaRepository.getInstance().cargarEntradas(todasLasZonas);
-            System.out.println("DEBUG: Se cargaron " + todasLasEntradas.size() + " entradas desde el archivo.");
-            for(Entrada e : todasLasEntradas) {
-                System.out.println("   Entrada cargada: " + e.getIdEntrada());
-            }
             //Cargamos las compras desde el txt pasando las listas y se vincula al usuario
             CompraRepository.getInstance().cargarCompras(usuarios, listaEventos, todasLasEntradas);
             vincularComprasAUsuarios();
@@ -176,5 +171,13 @@ public class PlataformaEventos {
         asiento.setEstado("BLOQUEADO");
         //Guardar en el archivo de bloqueos
         BloqueoRepository.getInstance().guardarBloqueo(asiento.getIdAsiento());
+    }
+
+    //Método para desblquear un asiento bloqueado
+    public void desbloquearAsiento(Zona zona, Asiento asiento) throws IOException {
+        //Cambiar estado en memoria
+        asiento.setEstado("DISPONIBLE");
+        //Eliminar del archivo txt de bloqueos
+        BloqueoRepository.getInstance().eliminarBloqueo(asiento.getIdAsiento());
     }
 }

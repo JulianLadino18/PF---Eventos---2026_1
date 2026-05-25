@@ -21,9 +21,7 @@ public class SistemaReservaFacade {
     private List<Entrada> entradasDisponibles;
     private List<Compra> comprasRealizadas;
 
-    // ==========================================
-    // 3. CONSTRUCTOR (Inicialización en Cascada)
-    // ==========================================
+    //Constructor (Inicialización en Cascada)
     public SistemaReservaFacade() {
         //esto es para instanciar los repositorios
         this.userRepository = UserRepository.getInstance();

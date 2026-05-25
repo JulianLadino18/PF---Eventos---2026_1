@@ -29,6 +29,7 @@
         <Label fx:id="lblNombreUsuario" text="Nombre: ---" />
         <Label fx:id="lblIdUsuario" text="ID: ---" />
     </VBox>
-    <Button layoutX="133.0" layoutY="300.0" onAction="#onCerrar" text="Cerrar" />
-   <Button fx:id="btnBloquear" layoutX="208.0" layoutY="300.0" onAction="#onBloquear" text="Bloquear Asiento" />
+    <Button layoutX="14.0" layoutY="300.0" onAction="#onCerrar" text="Cerrar" />
+   <Button fx:id="btnBloquear" layoutX="74.0" layoutY="300.0" onAction="#onBloquear" text="Bloquear Asiento" />
+   <Button fx:id="btnDesbloquear" layoutX="191.0" layoutY="300.0" onAction="#onDesbloquear" text="Desbloquear Asiento" />
 </AnchorPane>

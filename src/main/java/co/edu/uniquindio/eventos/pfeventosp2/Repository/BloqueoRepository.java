@@ -37,4 +37,17 @@ public class BloqueoRepository {
         }
         return bloqueados;
     }
+
+    //Método para eliminar el bloqueo de un asiento
+    public void eliminarBloqueo(String idAsiento) throws IOException {
+        List<String> bloqueos = cargarBloqueos();
+        bloqueos.remove(idAsiento);
+        //Reescribir el archivo
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaBloqueos))) {
+            for (String id : bloqueos) {
+                writer.write(id);
+                writer.newLine();
+            }
+        }
+    }
 }

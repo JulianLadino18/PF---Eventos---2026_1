@@ -17,7 +17,7 @@ public abstract class Entrada {
         this.estado = EstadoEntrada.ACTIVA;
     }
 
-    //getters
+    //getters y setters
     public String getIdEntrada() {
         return idEntrada;
     }
@@ -30,7 +30,9 @@ public abstract class Entrada {
     public EstadoEntrada getEstado() {
         return estado;
     }
-
+    public void setAsiento(Asiento asiento) {
+        this.asiento = asiento;
+    }
 
 
     //métodos abstractos que el decorator va a modificar
