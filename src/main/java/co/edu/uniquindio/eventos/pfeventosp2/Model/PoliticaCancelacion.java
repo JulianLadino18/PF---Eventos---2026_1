@@ -6,4 +6,5 @@ public interface PoliticaCancelacion {
 
     //método para obtener la descripción  de la política
     public String obtenerDescripcionPolitica();
+
 }

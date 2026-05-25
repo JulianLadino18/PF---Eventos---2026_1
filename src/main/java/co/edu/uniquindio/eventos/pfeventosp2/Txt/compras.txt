@@ -1,2 +1,5 @@
-COM-001@@@2001@@@E001@@@2026-05-25T10:13:09.277236700@@@580000.0@@@EstadoPagada@@@Vacio@@@Parqueadero,Souvenir,AccesoRapido
-COM-002@@@2002@@@E002@@@2026-05-25T10:13:09.277236700@@@120000.0@@@EstadoCreada@@@Vacio@@@Ninguno
+COM-001@@@2001@@@E001@@@2026-05-25T14:02:58.435319800@@@580000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Souvenir,AccesoRapido
+COM-002@@@2002@@@E002@@@2026-05-25T14:02:58.435319800@@@120000.0@@@EstadoCreada@@@Vacio@@@Ninguno
+C-1779734847389@@@2001@@@E001@@@2026-05-25T14:02:58.435319800@@@305000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Alimentacion
+C-1779735740213@@@2001@@@E002@@@2026-05-25T14:02:58.435319800@@@240000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Alimentacion,AccesoRapido,Souvenir
+C-1779735765942@@@2001@@@E001@@@2026-05-25T14:02:58.435319800@@@250000.0@@@EstadoCancelada@@@Vacio@@@Ninguno

@@ -125,7 +125,7 @@ public class Compra {
         // Método final que construye el objeto
         public Compra build() {
             if (this.itemsCompra.isEmpty()) {
-                System.out.println("Error: Una compra debe tener al menos un boleto.");
+                System.out.println("Una compra debe tener al menos un boleto.");
             }
             return new Compra(this);
         }

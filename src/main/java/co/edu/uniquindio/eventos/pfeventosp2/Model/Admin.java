@@ -7,20 +7,20 @@ public class Admin extends Persona{
     }
 
     //falta crear la clase evento
-    /*public void gestionarEvento(Evento evento, String nuevoEstado) {
-        evento.setEstado(nuevoEstado);
+    public void gestionarEvento(Evento evento, String nuevoEstado) {
+        evento.cambiarEstado(nuevoEstado);
         //(Publicar, Pausar, Cancelar)
     }
 
     //falta crear la clase asiento :p
     public void cambiarEstadoAsiento(Asiento asiento, String nuevoEstado) {
-        asiento.setEstado(nuevoEstado);
+        asiento.cambiarEstado(nuevoEstado);
         //(Bloquear o habilitar asientos)
     }
 
     public void registrarIncidencia(String descripcion, String tipo) {
         //se va a crear un registro en el IncidenciaRepository
-    }*/
+    }
 
     @Override
     public String toString() {

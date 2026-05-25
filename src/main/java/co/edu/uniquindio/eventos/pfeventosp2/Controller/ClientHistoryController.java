@@ -112,9 +112,7 @@ public class ClientHistoryController {
             return;
         }
 
-        // strategy para Reembolso
-        double porcentaje = seleccionada.getEvento().procesarReembolso(seleccionada.getTotal());
-        double devolucion = seleccionada.getTotal() * porcentaje;
+        double devolucion = seleccionada.getEvento().procesarReembolso(seleccionada.getTotal());
 
         // cambiar estado a estadoCancelada
         seleccionada.cancelar();
@@ -130,9 +128,11 @@ public class ClientHistoryController {
         // Refrescar tabla visualmente
         tablaCompras.refresh();
 
-        mostrarAlerta("Procesado", "Compra cancelada.\nPolítica: " +
-                seleccionada.getEvento().getPolitica().obtenerDescripcionPolitica() +
-                "\nTotal a devolver: $" + devolucion, Alert.AlertType.INFORMATION);
+        String devolucionFormateada = String.format("%,.2f", devolucion);
+
+        mostrarAlerta("Procesado", "Compra cancelada.\n" +
+                "Política: " + seleccionada.getEvento().getPolitica().obtenerDescripcionPolitica() + "\n" +
+                "Total a devolver: $" + devolucionFormateada, Alert.AlertType.INFORMATION);
     }
 
     @FXML
