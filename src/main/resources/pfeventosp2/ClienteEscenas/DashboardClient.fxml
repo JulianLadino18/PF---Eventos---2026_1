@@ -14,7 +14,7 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Button>
-            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="HISTORIAL" textAlignment="CENTER">
+            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onGoHistory" prefHeight="50.0" prefWidth="168.0" text="HISTORIAL" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font></Button>

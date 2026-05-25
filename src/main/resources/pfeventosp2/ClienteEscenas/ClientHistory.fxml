@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientHistoryController">
+    <children>
+        <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <Label text="Historial de Compras" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <TextField fx:id="txtBuscarEvento" promptText="Buscar por nombre evento..." />
+                <DatePicker fx:id="datePickerFiltro" promptText="Filtrar por fecha" />
+                <ComboBox fx:id="comboEstado" promptText="Estado" />
+                <Button text="Limpiar Filtros" onAction="#onLimpiarFiltros"/>
+            </HBox>
+
+            <TableView fx:id="tablaCompras" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID Compra" prefWidth="100"/>
+                    <TableColumn fx:id="colEvento" text="Evento" prefWidth="200"/>
+                    <TableColumn fx:id="colFecha" text="Fecha" prefWidth="120"/>
+                    <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                    <TableColumn fx:id="colTotal" text="Total" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <Button text="Exportar CSV" onAction="#onExportarCSV" style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+                <Button text="Exportar PDF" onAction="#onExportarPDF" style="-fx-background-color: #34495e; -fx-text-fill: white;"/>
+                <Button text="Solicitar Cancelación" onAction="#onCancelarCompra" style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

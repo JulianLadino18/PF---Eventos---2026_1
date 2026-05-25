@@ -126,16 +126,32 @@ public class ClientsEventsController {
 
 
 
-//            // filtro precio
-//            if (txtPrice.getText() != null && !txtPrice.getText().isEmpty()) {
-//                try {
-//                    double precioMax = Double.parseDouble(txtPrice.getText().trim());
-//                    if (evento.getPrecioBase() > precioMax) {
-//                        return false;
-//                    }
-//                } catch (NumberFormatException e) {
-//                }
-//            }
+            // Filtro por precio máximo
+            if (txtPrice.getText() != null && !txtPrice.getText().isEmpty()) {
+                try {
+                    double precioMax = Double.parseDouble(txtPrice.getText().trim());
+                    boolean tieneZonaLibre = false;
+
+                    // Verificar que el evento tenga recinto y zona
+                    if (evento.getRecinto() != null && evento.getRecinto().getZonas() != null) {
+                        for (Zona zona : evento.getRecinto().getZonas()) {
+
+                            // Comprobar precio y puestos
+                            if (zona.getPrecioBase() <= precioMax && zona.consultarDisponibles() > 0) {
+                                tieneZonaLibre = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    //
+                    if (!tieneZonaLibre) {
+                        return false;
+                    }
+
+                } catch (NumberFormatException e) {
+                }
+            }
 
             return true;
         });

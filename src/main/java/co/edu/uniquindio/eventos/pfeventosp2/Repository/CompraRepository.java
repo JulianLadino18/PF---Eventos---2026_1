@@ -91,6 +91,7 @@ public class CompraRepository {
                 //aquí se reconstruye el estado
                 compraReconstruida.setEstado(reconstruirEstado(datos[5]));
 
+
                 listaCompras.add(compraReconstruida);
             }
         }
@@ -150,5 +151,31 @@ public class CompraRepository {
         if (nombreEstado.equals("EstadoPagada")) return new EstadoPagada();
         if (nombreEstado.equals("EstadoCancelada")) return new EstadoCancelada();
         return new EstadoCreada(); // Por defecto
+    }
+
+    public void sobrescribirArchivoCompras() throws IOException {
+        // Al poner false, el FileWriter borra el archivo viejo y lo escribe de cero con los estados actualizados
+        try (PrintWriter pw = new PrintWriter(new FileWriter(rutaCompras, false))) {
+            for (Compra compra : listaCompras) {
+                List<String> idsEntradas = new ArrayList<>();
+                for (Entrada entrada : compra.getItemsCompra()) {
+                    idsEntradas.add(entrada.getIdEntrada());
+                }
+                String entradasString = idsEntradas.isEmpty() ? "Vacio" : String.join(",", idsEntradas);
+
+                String serviciosString = compra.getServiciosAdicionales().isEmpty() ? "Ninguno" : String.join(",", compra.getServiciosAdicionales());
+
+                // Construir la línea con el estado actualizado
+                String linea = compra.getIdCompra() + "@@@" +
+                        compra.getUsuario().getId() + "@@@" +
+                        compra.getEvento().getIdEvento() + "@@@" +
+                        compra.getFechaCreacion().toString() + "@@@" +
+                        compra.getTotal() + "@@@" +
+                        compra.getEstado().getClass().getSimpleName() + "@@@" +
+                        entradasString + "@@@" +
+                        serviciosString;
+                pw.println(linea);
+            }
+        }
     }
 }

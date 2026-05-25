@@ -9,9 +9,10 @@ public class EstadoPagada implements EstadoCompra{
 
     @Override
     public void cancelar(Compra compra) {
-        //si se cancela un pago se tiene que reembolsar
         System.out.println("Iniciando proceso de reembolso según políticas del evento...");
-        // Aquí llamas a la política de cancelación del evento
+
+        // cambiar estado
+        compra.setEstado(new EstadoCancelada());
     }
 
     @Override

@@ -52,6 +52,16 @@ public class ClientDashboardController {
     }
 
     @FXML
+    private void onGoHistory() {
+        FXMLLoader loader = cambiarVistaCentral("/pfeventosp2/ClienteEscenas/ClientHistory.fxml");
+
+        if (loader != null) {
+            ClientHistoryController hisController = loader.getController();
+            hisController.setDashboard(this);
+        }
+    }
+
+    @FXML
     private void onGoProfile() {
         cambiarVistaCentral("/pfeventosp2/ClienteEscenas/ClientProfile.fxml");
     }

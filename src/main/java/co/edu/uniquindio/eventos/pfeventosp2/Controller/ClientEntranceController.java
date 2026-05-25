@@ -1,191 +1,223 @@
 package co.edu.uniquindio.eventos.pfeventosp2.Controller;
+
 import co.edu.uniquindio.eventos.pfeventosp2.Model.*;
+import co.edu.uniquindio.eventos.pfeventosp2.Repository.CompraRepository;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
-
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientEntranceController {
 
-        @FXML private Label lblEventName;
-        @FXML private Label lblEventPlace;
-        @FXML private VBox vboxZonas;
-        @FXML private Label lblSubtotal;
-        @FXML private Button btnContinuar;
-        private ClientDashboardController dashboard;
+    @FXML private Label lblEventName;
+    @FXML private Label lblEventPlace;
+    @FXML private VBox vboxMapa;
+    @FXML private VBox vboxCarrito;
+    @FXML private Label lblSubtotal;
+    @FXML private Button btnContinuar;
 
-        public void setDashboard(ClientDashboardController dashboard) {
-            this.dashboard = dashboard;
-        }
+    private Evento eventoSeleccionado;
 
+    // Aquí guardaremos las entradas reales que el usuario vaya clickeando
+    private List<Entrada> carritoEntradas = new ArrayList<>();
 
-        private Evento eventoSeleccionado;
-        private double totalCompra = 0.0;
+    public void inicializarEvento(Evento evento) {
+        this.eventoSeleccionado = evento;
+        lblEventName.setText(evento.getNombre());
+        lblEventPlace.setText(evento.getRecinto().getNombre() + " - " + evento.getCiudad());
 
-        // Guarda qué Zona se eligió y cuántas entradas
-        private Map<Zona, Integer> entradasSeleccionadas = new HashMap<>();
+        sincronizarEstadosAsientos();
 
-        //Pasa el evento que eligio el usuario
-        public void inicializarEvento(Evento evento) {
-            this.eventoSeleccionado = evento;
+        Mapa();
+    }
 
-            lblEventName.setText(evento.getNombre());
-            lblEventPlace.setText(evento.getRecinto().getNombre() + " - " + evento.getCiudad());
+    // Logica copiada del admin pa saber que esta vendido
 
-            cargarZonasDeCompra();
-        }
-
-        private void cargarZonasDeCompra() {
-            vboxZonas.getChildren().clear();
-            entradasSeleccionadas.clear();
-
-            if (eventoSeleccionado.getRecinto() == null || eventoSeleccionado.getRecinto().getZonas() == null) {
-                vboxZonas.getChildren().add(new Label("No hay zonas disponibles para este evento."));
-                btnContinuar.setDisable(true);
-                return;
-            }
-
-            // Recorremos las zonas y creamos un control para cada una
-            for (Zona zona : eventoSeleccionado.getRecinto().getZonas()) {
-                int disponibles = zona.consultarDisponibles();
-
-                if (disponibles > 0) {
-                    HBox filaZona = crearFilaZona(zona, disponibles);
-                    vboxZonas.getChildren().add(filaZona);
+    private void sincronizarEstadosAsientos() {
+        // Por defecto todos disponibles
+        for (Zona z : eventoSeleccionado.getRecinto().getZonas()) {
+            if (z.getAsientos() != null) {
+                for (Asiento a : z.getAsientos()) {
+                    a.cambiarEstado("DISPONIBLE");
                 }
             }
-            actualizarSubtotal();
         }
 
-        private HBox crearFilaZona(Zona zona, int disponibles) {
-            HBox hbox = new HBox(15);
-            hbox.setAlignment(Pos.CENTER_LEFT);
 
-            // Información de la zona
-            Label lblInfo = new Label(zona.getNombre() + " - $" + zona.getPrecioBase() + " (Disp: " + disponibles + ")");
-            lblInfo.setPrefWidth(280);
-
-            // seleccionar la cantidad
-            Spinner<Integer> spinnerCantidad = new Spinner<>();
-
-            // Limita la compra al máximo disponible
-            SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, disponibles, 0);
-            spinnerCantidad.setValueFactory(valueFactory);
-            spinnerCantidad.setPrefWidth(70);
-
-            // Listener que se dispara cada vez que el usuario sube o baja la cantidad
-            spinnerCantidad.valueProperty().addListener((obs, oldValue, newValue) -> {
-                if (newValue > 0) {
-                    entradasSeleccionadas.put(zona, newValue);
-                } else {
-                    entradasSeleccionadas.remove(zona); // Si vuelve a 0, se quita del carrito
+        // Revisar las compras
+        for (Compra c : CompraRepository.getInstance().getListaCompras()) {
+            if (c.getEvento().getIdEvento().equals(eventoSeleccionado.getIdEvento()) && !(c.getEstado() instanceof EstadoCancelada)) {
+                String estadoOcupacion = (c.getEstado() instanceof EstadoPagada) ? "VENDIDO" : "RESERVADO";
+                for (Entrada e : c.getItemsCompra()) {
+                    if (e.getAsiento() != null) {
+                        for (Zona zonaMapa : eventoSeleccionado.getRecinto().getZonas()) {
+                            if (zonaMapa.getAsientos() != null) {
+                                for (Asiento asientoVisual : zonaMapa.getAsientos()) {
+                                    if (asientoVisual.getIdAsiento().equals(e.getAsiento().getIdAsiento())) {
+                                        asientoVisual.cambiarEstado(estadoOcupacion);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                actualizarSubtotal();
-            });
-
-            hbox.getChildren().addAll(lblInfo, spinnerCantidad);
-            return hbox;
-        }
-
-        private void actualizarSubtotal() {
-            totalCompra = 0.0;
-
-            // Sumar el costo de cada zona seleccionada multiplicada por su cantidad
-            for (Map.Entry<Zona, Integer> entry : entradasSeleccionadas.entrySet()) {
-                totalCompra += entry.getKey().getPrecioBase() * entry.getValue();
             }
-
-            lblSubtotal.setText("Subtotal: $" + String.format("%.2f", totalCompra));
-
-            // El botón solo se habilita si el usuario ha seleccionado al menos 1 entrada
-            btnContinuar.setDisable(totalCompra == 0);
         }
+    }
 
-    @FXML
-    private void onContinuarCompra() {
-        if (entradasSeleccionadas.isEmpty()) {
-            Alert alerta = new Alert(Alert.AlertType.WARNING);
-            alerta.setTitle("Atención");
-            alerta.setHeaderText(null);
-            alerta.setContentText("Debes seleccionar al menos una entrada para continuar.");
-            alerta.showAndWait();
+    //mapa
+    public void Mapa() {
+        vboxMapa.getChildren().clear();
+
+        if (eventoSeleccionado.getRecinto() == null || eventoSeleccionado.getRecinto().getZonas().isEmpty()) {
+            vboxMapa.getChildren().add(new Label("Este evento no tiene un mapa de asientos configurado."));
             return;
         }
 
-        // construccion de compra con el builder
-        Usuario usuarioActual = (Usuario) co.edu.uniquindio.eventos.pfeventosp2.HelloApplication.loggedUser;
-        String idTemporal = "C-" + System.currentTimeMillis();
-        Compra.CompraBuilder builder = new Compra.CompraBuilder(idTemporal, usuarioActual, eventoSeleccionado);
+        // --- Escenario ---
+        Label escenario = new Label("ESCENARIO");
+        escenario.setPrefSize(400, 40);
+        escenario.setAlignment(Pos.CENTER);
+        escenario.setStyle("-fx-background-color: #d1d5db; -fx-border-color: #9ca3af; -fx-border-width: 2; -fx-font-weight: bold;");
+        vboxMapa.getChildren().add(escenario);
 
-        for (Map.Entry<Zona, Integer> entry : entradasSeleccionadas.entrySet()) {
-            Zona zonaSeleccionada = entry.getKey();
-            int cantidadPedida = entry.getValue();
+        HBox contenedorZonasH = new HBox(20);
+        contenedorZonasH.setAlignment(Pos.TOP_CENTER);
 
-            for (int i = 0; i < cantidadPedida; i++) {
-                String idBoletoTemporal = "TKT-" + System.currentTimeMillis() + "-" + i;
-                Asiento asientoGenerico = null;
-                Entrada boleto = EntradaFactory.crearEntrada(idBoletoTemporal, zonaSeleccionada, asientoGenerico);
-                builder.agregarBoleto(boleto);
+        for (Zona zona : eventoSeleccionado.getRecinto().getZonas()) {
+            VBox zonaBox = new VBox(10);
+            zonaBox.setAlignment(Pos.TOP_CENTER);
+            zonaBox.setStyle("-fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 10;");
+
+            Label lblZona = new Label(zona.getNombre() + " ($" + zona.getPrecioBase() + ")");
+            lblZona.setStyle("-fx-font-weight: bold;");
+
+            GridPane gridAsientos = new GridPane();
+            gridAsientos.setHgap(5); gridAsientos.setVgap(5);
+            gridAsientos.setAlignment(Pos.CENTER);
+
+            int columna = 0, filaGrid = 0;
+            int maxColumnas = zona.getAsientosPorFila();
+
+            for (Asiento asiento : zona.getAsientos()) {
+                String[] partes = asiento.getIdAsiento().split("-");
+                String textoSilla = (partes.length >= 3) ? partes[1] + partes[2] : "S";
+
+                Button btnAsiento = new Button(textoSilla);
+                btnAsiento.setPrefSize(35, 35);
+
+                // Color inicial
+                boton(btnAsiento, asiento.getEstado());
+
+                // Acción de click
+                btnAsiento.setOnAction(e -> clickAsiento(btnAsiento, zona, asiento));
+
+                gridAsientos.add(btnAsiento, columna, filaGrid);
+
+                columna++;
+                if (columna >= maxColumnas) {
+                    columna = 0; filaGrid++;
+                }
             }
+            zonaBox.getChildren().addAll(lblZona, gridAsientos);
+            contenedorZonasH.getChildren().add(zonaBox);
+        }
+        vboxMapa.getChildren().add(contenedorZonasH);
+    }
+
+    private void boton(Button btn, String estado) {
+        String base = "-fx-text-fill: white; -fx-font-size: 10px; -fx-cursor: hand; -fx-background-radius: 3; -fx-background-color: ";
+        if (estado.equals("DISPONIBLE")) btn.setStyle(base + "#4caf50;"); // Verde
+        else if (estado.equals("SELECCIONADO")) btn.setStyle(base + "#0009ff;"); // Azul Cliente
+        else btn.setStyle(base + "#9e9e9e; -fx-cursor: default;"); // Gris (Vendido/Bloqueado)
+    }
+
+    // seleccionar para añadir al carro de compras
+    private void clickAsiento(Button btn, Zona zona, Asiento asiento) {
+        // Si no está disponible ni seleccionado, no hace nada (está vendido)
+        if (!asiento.getEstado().equals("DISPONIBLE") && !asiento.getEstado().equals("SELECCIONADO")) {
+            return;
         }
 
+        if (asiento.getEstado().equals("DISPONIBLE")) {
+            // lo selecciona
+            asiento.cambiarEstado("SELECCIONADO");
+            boton(btn, "SELECCIONADO");
+
+            // fabricar entrada y meter en el carro
+            String idTemporal = "TKT-" + System.currentTimeMillis();
+            Entrada nuevaEntrada = EntradaFactory.crearEntrada(idTemporal, zona, asiento);
+            carritoEntradas.add(nuevaEntrada);
+
+        } else if (asiento.getEstado().equals("SELECCIONADO")) {
+            // ya no lo selecciona
+            asiento.cambiarEstado("DISPONIBLE");
+            boton(btn, "DISPONIBLE");
+
+            // se saca del carrito
+            carritoEntradas.removeIf(e -> e.getAsiento().getIdAsiento().equals(asiento.getIdAsiento()));
+        }
+
+        actualizarCarro();
+    }
+
+    private void actualizarCarro() {
+        vboxCarrito.getChildren().clear();
+        double total = 0;
+
+        for (Entrada e : carritoEntradas) {
+            Label lblItem = new Label("• " + e.getZona().getNombre() + " (" + e.getAsiento().getIdAsiento() + ") - $" + e.getZona().getPrecioBase());
+            lblItem.setStyle("-fx-font-size: 12px;");
+            vboxCarrito.getChildren().add(lblItem);
+            total += e.getZona().getPrecioBase();
+        }
+
+        lblSubtotal.setText("$" + total);
+        btnContinuar.setDisable(carritoEntradas.isEmpty());
+    }
+
+    // contruir la compra ( builder )
+    @FXML
+    private void onContinuarCompra() {
+        Usuario usuarioActual = (Usuario) co.edu.uniquindio.eventos.pfeventosp2.HelloApplication.loggedUser;
+        String idTemporal = "C-" + System.currentTimeMillis();
+
+        Compra.CompraBuilder builder = new Compra.CompraBuilder(idTemporal, usuarioActual, eventoSeleccionado);
+        for (Entrada boleto : carritoEntradas) {
+            builder.agregarBoleto(boleto);
+        }
         Compra compraPendiente = builder.build();
 
+        // Cambio de pantalla
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/ClienteEscenas/ClientPayment.fxml"));
             AnchorPane vistaPago = loader.load();
-
-            // Extraemos el controlador del pago y le inyectamos nuestra compra
             ClientPaymentController paymentController = loader.getController();
             paymentController.inicializarPago(compraPendiente);
 
-            // Conseguimos el contenedor central (#contenedorC) y reemplazamos el FXML
             AnchorPane contenedorC = (AnchorPane) lblEventName.getScene().lookup("#contenedorC");
+            contenedorC.getChildren().clear();
+            contenedorC.getChildren().add(vistaPago);
+            AnchorPane.setTopAnchor(vistaPago, 0.0); AnchorPane.setBottomAnchor(vistaPago, 0.0);
+            AnchorPane.setLeftAnchor(vistaPago, 0.0); AnchorPane.setRightAnchor(vistaPago, 0.0);
 
-            if (contenedorC != null) {
-                contenedorC.getChildren().clear();
-                contenedorC.getChildren().add(vistaPago);
-
-                AnchorPane.setTopAnchor(vistaPago, 0.0);
-                AnchorPane.setBottomAnchor(vistaPago, 0.0);
-                AnchorPane.setLeftAnchor(vistaPago, 0.0);
-                AnchorPane.setRightAnchor(vistaPago, 0.0);
-            } else {
-                System.out.println("Error: No se encontró el #contenedorC en la escena.");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error al cargar la vista de pagos.");
-        }
+        } catch (IOException e) { e.printStackTrace(); }
     }
+
     @FXML
     private void onCancel() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/ClienteEscenas/ClientEvents.fxml"));
             AnchorPane vistaEventos = loader.load();
-
-            // Conseguimos el contenedor del padre directo
             AnchorPane contenedorC = (AnchorPane) lblEventName.getScene().lookup("#contenedorC");
             contenedorC.getChildren().clear();
             contenedorC.getChildren().add(vistaEventos);
-
-            AnchorPane.setTopAnchor(vistaEventos, 0.0);
-            AnchorPane.setBottomAnchor(vistaEventos, 0.0);
-            AnchorPane.setLeftAnchor(vistaEventos, 0.0);
-            AnchorPane.setRightAnchor(vistaEventos, 0.0);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            AnchorPane.setTopAnchor(vistaEventos, 0.0); AnchorPane.setBottomAnchor(vistaEventos, 0.0);
+            AnchorPane.setLeftAnchor(vistaEventos, 0.0); AnchorPane.setRightAnchor(vistaEventos, 0.0);
+        } catch (IOException e) { e.printStackTrace(); }
     }
-
 }
