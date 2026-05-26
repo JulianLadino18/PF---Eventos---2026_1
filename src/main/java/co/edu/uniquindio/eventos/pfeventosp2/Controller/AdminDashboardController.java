@@ -48,6 +48,9 @@ public class AdminDashboardController {
     private Button btnEventos;
 
     @FXML
+    private Button btnCompras;
+
+    @FXML
     private Button btnIncidencias;
 
     @FXML
@@ -136,6 +139,25 @@ public class AdminDashboardController {
         try {
             //Cargar la vista de Eventos
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/Eventos.fxml"));
+            Node nuevaEscena = loader.load();
+
+            //Extraer el controlador de Eventos
+            EventosController EventosController = loader.getController();
+
+            //Mostramos la ventana dentro del AnchorPane de contenido
+            contenido.getChildren().setAll(nuevaEscena);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista de Eventos.");
+        }
+    }
+
+    @FXML
+    void onCompras(ActionEvent event) {
+        try {
+            //Cargar la vista de Eventos
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/GestionarCompras.fxml"));
             Node nuevaEscena = loader.load();
 
             //Extraer el controlador de Eventos

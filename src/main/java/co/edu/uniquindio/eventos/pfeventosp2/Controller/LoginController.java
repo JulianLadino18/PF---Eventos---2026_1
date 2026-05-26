@@ -65,7 +65,7 @@ public class LoginController {
         //Guardar sesión global
         HelloApplication.loggedUser = user;
 
-        String fxmlPath = "";
+        String fxmlPath;
         RoleUser rol = user.getRole();
 
         switch (rol) {

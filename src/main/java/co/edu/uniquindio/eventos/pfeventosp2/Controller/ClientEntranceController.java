@@ -166,7 +166,7 @@ public class ClientEntranceController {
     }
 
     private void actualizarCarro() {
-        vboxCarrito.getChildren();
+        vboxCarrito.getChildren().clear();
         double total = 0;
 
         for (Entrada e : carritoEntradas) {

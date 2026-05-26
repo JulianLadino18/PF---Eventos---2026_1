@@ -31,7 +31,9 @@ public abstract class Entrada {
         return estado;
     }
 
-
+    public void setAsiento(Asiento asiento) {
+        this.asiento = asiento;
+    }
 
     //métodos abstractos que el decorator va a modificar
     public abstract double getPrecioFinal();

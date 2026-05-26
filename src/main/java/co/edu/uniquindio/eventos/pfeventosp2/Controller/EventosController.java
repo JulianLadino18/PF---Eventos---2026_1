@@ -393,21 +393,21 @@ public class EventosController {
 
     //Método para mostrar alertas simples al usuario
     private void mostrarAlerta(String titulo, String mensaje) {
-        // Definimos el tipo de alerta por defecto como INFORMACIÓN
+        //Definir el tipo de alerta por defecto como información
         Alert.AlertType tipoAlerta = Alert.AlertType.INFORMATION;
 
-        // Si el título es "Error", cambiamos el tipo a ERROR para que muestre el icono rojo
+        //Si el título es "Error", cambiar el tipo a ERROR para que muestre el icono rojo
         if (titulo != null && titulo.equalsIgnoreCase("Error")) {
             tipoAlerta = Alert.AlertType.ERROR;
         }
 
-        // Creamos la alerta con el tipo definido
+        //Crear la alerta con el tipo definido
         Alert alerta = new Alert(tipoAlerta);
-        alerta.setTitle(titulo); // Título de la ventana
-        alerta.setHeaderText(null); // Sin texto de cabecera para que sea más limpia
-        alerta.setContentText(mensaje); // El mensaje principal
+        alerta.setTitle(titulo); //Título de la ventana
+        alerta.setHeaderText(null);
+        alerta.setContentText(mensaje); //El mensaje principal
 
-        // Mostramos la alerta y esperamos a que el usuario la cierre (showAndWait)cite: [cite: 1, 2]
+        //Mostrar la alerta y esperar a que el usuario la cierre (showAndWait)cite: [cite: 1, 2]
         alerta.showAndWait();
     }
 
