@@ -64,7 +64,7 @@ public class ClientsEventsController {
 
         //Cargar los datos y aplicar la lista filtrada
         ObservableList<Evento> listaOriginal = FXCollections.observableArrayList(PlataformaEventos.getInstancia().getListaEventos());
-        listaFiltrada = new FilteredList<>(listaOriginal, p -> true);
+        listaFiltrada = new FilteredList<>(listaOriginal, p -> p.getEstado().equalsIgnoreCase("PUBLICADO"));
 
         // poner los datos en el tableview
         EventsTable.setItems(listaFiltrada);
@@ -99,6 +99,11 @@ public class ClientsEventsController {
 
     private void aplicarFiltros() {
         listaFiltrada.setPredicate(evento -> {
+
+            //Si no esta publicado lo oculta
+            if (!evento.getEstado().equalsIgnoreCase("PUBLICADO")) {
+                return false;
+            }
 
             // filtra por ciudad
             if (txtCity.getText() != null && !txtCity.getText().isEmpty()) {
