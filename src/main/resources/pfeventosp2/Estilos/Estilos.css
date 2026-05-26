@@ -3,14 +3,23 @@
     -fx-font-weight: bold;
     -fx-font-size: 25px;
 }
-Label,Text{
-    -fx-text-fill: #ffffff;
-    -fx-font-family: "Mozilla";
-    -fx-font-size: 14px;
+.tittle-dark{
+    -fx-text-fill: #0B2844;
+    -fx-font-weight: bold;
+    -fx-font-size:35px;
 }
 .text{
     -fx-text-fill: #ffffff;
     -fx-font-size: 15px;
+}
+.text-dark{
+    -fx-text-fill: #0b2844;
+    -fx-font-size: 15px;
+}
+Label,Text{
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Mozilla";
+    -fx-font-size: 14px;
 }
 .content{
     -fx-background-color: transparent;
@@ -51,6 +60,10 @@ Label,Text{
 .sidebar{
     -fx-background-color:#0B2844;
     -fx-background-radius: 15px;
+    -fx-background-insets: 0;
+}
+.header{
+    -fx-background-color:#0B2844;
     -fx-background-insets: 0;
 }
 
@@ -115,6 +128,43 @@ TextField:focused, PasswordField:focused{
     -fx-background-radius: 5;
     -fx-border-insets: 0;
     -fx-border-radius: 2;
+}
+.btn-profile{
+    -fx-background-color: #bb8b26;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}
+.btn-profile:hover,.btn-profile:focused{
+    -fx-background-color: #936a0d;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}
+.btn-header{
+    -fx-text-fill: #f5b236;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 60px;
+    -fx-background-color: #0B2844;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0  2px 0 ;
+}
+.btn-header:hover{
+    -fx-text-fill: #f5b236;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 60px;
+    -fx-background-color: #062036;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0  2px 0 ;
+}
+.btn-header:focused{
+    -fx-text-fill: #f5b236;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 60px;
+    -fx-background-color: #062036;
+    -fx-border-color: #f5b236;
+    -fx-border-width: 0 0  2px 0 ;
 }
 .btn-sidebar{
     -fx-text-fill: #f5b236;

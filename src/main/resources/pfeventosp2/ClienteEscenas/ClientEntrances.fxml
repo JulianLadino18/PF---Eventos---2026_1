@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientEntranceController">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientEntranceController">
     <children>
         <BorderPane prefHeight="450.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
             <top>
                 <VBox spacing="8.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label text="Selección de Entradas" textFill="#0009ff">
+                        <Label styleClass="tittle-dark" text="Selección de Entradas" textFill="#0009ff">
                             <font>
                                 <Font name="System Bold" size="22.0" />
                             </font>
@@ -21,12 +26,12 @@
                             <children>
                                 <HBox spacing="5.0">
                                     <children>
-                                        <Label text="Evento:">
+                                        <Label styleClass="text-dark" text="Evento:">
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lblEventName" text="Nombre del Evento Seleccionado" textFill="#333333">
+                                        <Label fx:id="lblEventName" styleClass="text-dark" text="Nombre del Evento Seleccionado" textFill="#333333">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -35,12 +40,12 @@
                                 </HBox>
                                 <HBox spacing="5.0">
                                     <children>
-                                        <Label text="Lugar:">
+                                        <Label styleClass="text-dark" text="Lugar:">
                                             <font>
                                                 <Font name="System Bold" size="13.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="lblEventPlace" text="Nombre del Recinto y Ciudad" textFill="#666666">
+                                        <Label fx:id="lblEventPlace" styleClass="text-dark" text="Nombre del Recinto y Ciudad" textFill="#666666">
                                             <font>
                                                 <Font size="13.0" />
                                             </font>
@@ -68,8 +73,8 @@
          <bottom>
             <AnchorPane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#onCancel" style="-fx-background-color: red;" text="Cancelar" textFill="WHITE" />
-                        <Button fx:id="btnContinuar" disable="true" layoutX="426.0" layoutY="22.0" mnemonicParsing="parseText" onAction="#onContinuarCompra" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #0009ff; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-cursor: hand;" text="Continuar al Pago" />
+                  <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#onCancel" styleClass="btn" text="Cancelar" textFill="WHITE" />
+                        <Button fx:id="btnContinuar" disable="true" layoutX="426.0" layoutY="22.0" mnemonicParsing="parseText" onAction="#onContinuarCompra" prefHeight="35.0" prefWidth="160.0" styleClass="btn" text="Continuar al Pago" />
                         <Label fx:id="lblSubtotal" layoutX="264.0" layoutY="27.0" text="Subtotal: $0.00">
                             <font>
                                 <Font name="System Bold" size="16.0" />
