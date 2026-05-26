@@ -1,5 +1,7 @@
 package co.edu.uniquindio.eventos.pfeventosp2.Model;
 
+import co.edu.uniquindio.eventos.pfeventosp2.Repository.IncidenciaRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 
