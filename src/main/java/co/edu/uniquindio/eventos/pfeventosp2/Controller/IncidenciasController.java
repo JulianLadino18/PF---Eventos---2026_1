@@ -104,7 +104,7 @@ public class IncidenciasController {
     @FXML
     void onNuevaIncidencia(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/NuevaIncidencia.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/NuevaIncidencia.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.WINDOW_MODAL);
@@ -126,18 +126,24 @@ public class IncidenciasController {
         Incidencia seleccionado = tblIncidencias.getSelectionModel().getSelectedItem();
 
         if (seleccionado == null) {
-            mostrarAlerta("Atención", "Selecciona una incidencia de la tabla para ver su detalle.", Alert.AlertType.WARNING);
+            mostrarAlerta("Atención", "Selecciona una incidencia de la tabla.", Alert.AlertType.WARNING);
             return;
         }
 
-        //Aquí se muestra el detalle completo
+        //Construir el mensaje
         String mensajeDetalle = "ID: " + seleccionado.getIdIncidencia() + "\n" +
                 "Tipo: " + seleccionado.getTipo() + "\n" +
                 "Fecha: " + seleccionado.getFecha().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")) + "\n" +
                 "Entidad Afectada: " + seleccionado.getTipoEntidadAfectada() + " (" + seleccionado.getIdEntidadAfectada() + ")\n\n" +
                 "Descripción:\n" + seleccionado.getDescripcion();
 
-        mostrarAlerta("Detalle de Incidencia", mensajeDetalle, Alert.AlertType.INFORMATION);
+        //Crear la alerta, se hizo sin el mostrar mensaje para poder volver más grande la alerta
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Detalle de Incidencia");
+        alert.setHeaderText(null);
+        alert.setContentText(mensajeDetalle);
+        alert.getDialogPane().setPrefWidth(800);
+        alert.showAndWait();
     }
 
     @FXML
