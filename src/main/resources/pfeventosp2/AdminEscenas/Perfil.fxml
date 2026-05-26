@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="579.0" prefWidth="839.0" styleClass="content" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.PerfilAdminController">
+    <children>
+        <Label layoutX="50.0" layoutY="30.0" prefHeight="35.0" prefWidth="121.0" styleClass="tittle" text="Mi Perfil" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+
+        <VBox layoutX="81.0" layoutY="108.0" prefHeight="364.0" prefWidth="338.0" spacing="15.0" AnchorPane.leftAnchor="50.0">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Datos Personales" />
+
+            <Label text="ID (Solo lectura):" />
+            <TextField fx:id="txtId" editable="false" />
+
+            <Label text="Nombre Completo:" />
+            <TextField fx:id="txtNombre" promptText="Tu nombre" />
+
+            <Label text="Correo Electrónico:" />
+            <TextField fx:id="txtCorreo" promptText="Tu correo" />
+
+            <Button onAction="#onActualizarDatos" styleClass="btn" text="Actualizar Datos" />
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+        </VBox>
+
+        <VBox layoutX="478.0" layoutY="107.0" prefHeight="366.0" prefWidth="338.0" spacing="15.0" style="-fx-border-color: #ccc; -fx-border-radius: 15px; -fx-padding: 15px; -fx-background-color: rgba(255,255,255,0.1); -fx-background-radius: 15 px;" AnchorPane.rightAnchor="50.0">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 16px;" text="Cambiar Contraseña" />
+
+            <Label text="Contraseña Actual:" />
+            <PasswordField fx:id="txtContrasenaActual" promptText="Ingresa contraseña actual" />
+
+            <Label text="Nueva Contraseña:" />
+            <PasswordField fx:id="txtNuevaContrasena" promptText="Ingresa la nueva contraseña" />
+
+            <Label text="Confirmar Nueva Contraseña:" />
+            <PasswordField fx:id="txtConfirmarContrasena" promptText="Repite la nueva contraseña" />
+
+            <Button onAction="#onCambiarContrasena" styleClass="btn" text="Cambiar Contraseña" />
+        </VBox>
+    </children>
+</AnchorPane>
