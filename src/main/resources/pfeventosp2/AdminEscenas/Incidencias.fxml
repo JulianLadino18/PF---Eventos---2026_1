@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -10,38 +11,46 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.IncidenciasController">
-    <Text fill="#4d5e9e" layoutX="40.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestión de Incidencias">
+<AnchorPane prefHeight="579.0" prefWidth="839.0" styleClass="content" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.IncidenciasController">
+    <Text fill="WHITE" layoutX="5.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tittle" text="Gestión de Incidencias" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
         <font>
             <Font name="System Bold" size="30.0" />
         </font>
     </Text>
 
-    <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="90.0" prefHeight="40.0" prefWidth="720.0" spacing="15.0">
+    <HBox alignment="CENTER_LEFT" layoutX="5.0" layoutY="89.0" prefHeight="40.0" prefWidth="720.0" spacing="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="4.599999999999909">
         <children>
-            <Text text="Filtrar por tipo:" />
-            <ComboBox fx:id="tipoFiltro" prefWidth="150.0" promptText="Seleccionar tipo" />
-            <Text text="Fecha:" />
-            <DatePicker fx:id="fechaFiltro" prefWidth="150.0" />
-            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#onLimpiarFiltros" text="Limpiar" />
+            <Text fill="WHITE" styleClass="text" text="Filtrar por tipo:" />
+            <ComboBox fx:id="tipoFiltro" prefWidth="169.0" promptText="Seleccionar tipo" styleClass="btn" />
+            <Text fill="WHITE" styleClass="text" text="Fecha:" />
+            <DatePicker fx:id="fechaFiltro" prefWidth="150.0" styleClass="btn" />
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#onLimpiarFiltros" prefWidth="112.0" styleClass="btn" text="Limpiar" />
+      
+          <Button fx:id="btnNueva" mnemonicParsing="false" onAction="#onNuevaIncidencia" prefHeight="30.0" prefWidth="171.0" styleClass="btn" text="+ Nueva Incidencia" />
         </children>
     </HBox>
 
-    <TableView fx:id="tblIncidencias" layoutX="40.0" layoutY="140.0" prefHeight="350.0" prefWidth="720.0">
+    <TableView fx:id="tblIncidencias" layoutX="40.0" layoutY="140.0" prefHeight="385.0" prefWidth="829.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
         <columns>
             <TableColumn fx:id="idC" prefWidth="80.0" text="ID" />
             <TableColumn fx:id="tipoC" prefWidth="120.0" text="Tipo" />
             <TableColumn fx:id="fechaC" prefWidth="120.0" text="Fecha" />
-            <TableColumn fx:id="entidadC" prefWidth="150.0" text="Entidad Afectada" />
-            <TableColumn fx:id="descC" prefWidth="250.0" text="Descripción" />
+            <TableColumn fx:id="entidadC" prefWidth="208.79998779296875" text="Entidad Afectada" />
+            <TableColumn fx:id="descC" prefWidth="300.79998779296875" text="Descripción" />
         </columns>
     </TableView>
-
-    <Button fx:id="btnNueva" layoutX="40.0" layoutY="510.0" mnemonicParsing="false" onAction="#onNuevaIncidencia" prefHeight="30.0" prefWidth="150.0" text="+ Nueva Incidencia" />
-    <Button fx:id="btnDetalle" layoutX="600.0" layoutY="510.0" mnemonicParsing="false" onAction="#onVerDetalle" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #4d5e9e; -fx-text-fill: white;" text="Ver Detalle Completo">
-        <font>
-            <Font name="System Bold" size="12.0" />
-        </font>
-    </Button>
-   <Button fx:id="btnEliminar" layoutX="197.0" layoutY="510.0" mnemonicParsing="false" onAction="#onEliminarIncidencia" prefHeight="30.0" prefWidth="66.0" text="Eliminar" />
+   <HBox layoutX="249.0" layoutY="440.0" prefHeight="11.0" prefWidth="829.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+      <children>
+         <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#onEliminarIncidencia" prefHeight="31.0" prefWidth="130.0" styleClass="btn" text="Eliminar">
+            <HBox.margin>
+               <Insets right="510.0" />
+            </HBox.margin>
+         </Button>
+          <Button fx:id="btnDetalle" mnemonicParsing="false" onAction="#onVerDetalle" prefHeight="31.0" prefWidth="188.0" styleClass="btn" text="Ver Detalle Completo">
+              <font>
+                  <Font name="System Bold" size="12.0" />
+              </font>
+          </Button>
+      </children>
+   </HBox>
 </AnchorPane>

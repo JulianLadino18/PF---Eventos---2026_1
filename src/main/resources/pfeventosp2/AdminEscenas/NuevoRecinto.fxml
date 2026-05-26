@@ -6,32 +6,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.NuevoRecintoController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" styleClass="sidebar" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.NuevoRecintoController">
     <children>
         <!-- Título -->
-        <Text fill="#4d5e9e" layoutX="40.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Recinto">
+        <Text fill="WHITE" layoutX="40.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tittle" text="Nuevo Recinto" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
         </Text>
 
         <!-- Etiquetas -->
-        <Text fill="#4c3984" layoutX="40.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID del Recinto:">
+        <Text fill="WHITE" layoutX="40.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="ID del Recinto:">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Text>
-        <Text fill="#4c3984" layoutX="40.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+        <Text fill="WHITE" layoutX="40.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nombre:">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Text>
-        <Text fill="#4c3984" layoutX="40.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dirección:">
+        <Text fill="WHITE" layoutX="40.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Dirección:">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Text>
-        <Text fill="#4c3984" layoutX="40.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ciudad:">
+        <Text fill="WHITE" layoutX="40.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Ciudad:">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
@@ -44,7 +44,7 @@
         <TextField fx:id="ciudadField" layoutX="160.0" layoutY="250.0" prefHeight="26.0" prefWidth="280.0" promptText="Ej: Armenia" />
 
         <!-- Botones de Acción -->
-        <Button fx:id="cancelarButton" layoutX="220.0" layoutY="320.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="30.0" prefWidth="100.0" text="Cancelar" />
-        <Button fx:id="crearButton" layoutX="340.0" layoutY="320.0" mnemonicParsing="false" onAction="#onCrear" prefHeight="30.0" prefWidth="100.0" text="Crear Recinto" />
+        <Button fx:id="cancelarButton" layoutX="220.0" layoutY="320.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="30.0" prefWidth="30.0" styleClass="btn" text="X" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+        <Button fx:id="crearButton" layoutX="300.0" layoutY="320.0" mnemonicParsing="false" onAction="#onCrear" prefHeight="30.0" prefWidth="140.0" styleClass="btn" text="Crear Recinto" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
     </children>
 </AnchorPane>

@@ -7,8 +7,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.DetalleAsientoController">
-    <Text fill="#4d5e9e" layoutX="30.0" layoutY="40.0" text="Detalle del Asiento">
+<AnchorPane prefHeight="350.0" prefWidth="350.0" styleClass="sidebar" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.DetalleAsientoController">
+    <Text fill="WHITE" layoutX="19.0" layoutY="44.0" styleClass="tittle" text="Detalle del Asiento" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
         <font><Font name="System Bold" size="22.0" /></font>
     </Text>
 
@@ -29,6 +29,6 @@
         <Label fx:id="lblNombreUsuario" text="Nombre: ---" />
         <Label fx:id="lblIdUsuario" text="ID: ---" />
     </VBox>
-    <Button layoutX="133.0" layoutY="300.0" onAction="#onCerrar" text="Cerrar" />
-   <Button fx:id="btnBloquear" layoutX="208.0" layoutY="300.0" onAction="#onBloquear" text="Bloquear Asiento" />
+    <Button layoutX="303.0" layoutY="16.0" onAction="#onCerrar" prefWidth="30.0" styleClass="btn" text="X" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+   <Button fx:id="btnBloquear" layoutX="21.0" layoutY="300.0" onAction="#onBloquear" styleClass="btn" text="Bloquear Asiento" />
 </AnchorPane>

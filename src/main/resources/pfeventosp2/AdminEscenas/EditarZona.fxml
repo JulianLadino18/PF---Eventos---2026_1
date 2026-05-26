@@ -6,64 +6,56 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.EditarZonaController">
-    <Text fill="#4d5e9e" layoutX="40.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Zona">
+<AnchorPane prefHeight="450.0" prefWidth="400.0" styleClass="sidebar" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.EditarZonaController">
+    <Text fill="WHITE" layoutX="40.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tittle" text="Editar Zona" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
         <font>
-            <Font name="System Bold" size="26.0"/>
+            <Font name="System Bold" size="26.0" />
         </font>
     </Text>
 
-    <Text fill="#4c3984" layoutX="40.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Zona:">
+    <Text fill="WHITE" layoutX="40.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="ID Zona:">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="#4c3984" layoutX="40.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+    <Text fill="WHITE" layoutX="40.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nombre:">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="#4c3984" layoutX="40.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0"
-          text="Capacidad (10-20):">
+    <Text fill="WHITE" layoutX="40.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Capacidad (10-20):">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="#4c3984" layoutX="40.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0"
-          text="Asientos por Fila:">
+    <Text fill="WHITE" layoutX="40.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Asientos por Fila:">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Text>
-    <Text fill="#4c3984" layoutX="40.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio Base ($):">
+    <Text fill="WHITE" layoutX="40.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Precio Base ($):">
         <font>
-            <Font name="System Bold" size="14.0"/>
+            <Font name="System Bold" size="14.0" />
         </font>
     </Text>
 
-    <TextField fx:id="idZonaField" layoutX="180.0" layoutY="80.0" prefHeight="26.0" prefWidth="180.0"/>
-    <TextField fx:id="nombreField" layoutX="180.0" layoutY="130.0" prefHeight="26.0" prefWidth="180.0"/>
-    <TextField fx:id="capacidadField" layoutX="180.0" layoutY="180.0" prefHeight="26.0" prefWidth="180.0"/>
-    <TextField fx:id="asientosFilaField" layoutX="180.0" layoutY="230.0" prefHeight="26.0" prefWidth="180.0"/>
-    <TextField fx:id="precioField" layoutX="180.0" layoutY="280.0" prefHeight="26.0" prefWidth="180.0"/>
+    <TextField fx:id="idZonaField" layoutX="180.0" layoutY="80.0" prefHeight="26.0" prefWidth="180.0" />
+    <TextField fx:id="nombreField" layoutX="180.0" layoutY="130.0" prefHeight="26.0" prefWidth="180.0" />
+    <TextField fx:id="capacidadField" layoutX="180.0" layoutY="180.0" prefHeight="26.0" prefWidth="180.0" />
+    <TextField fx:id="asientosFilaField" layoutX="180.0" layoutY="230.0" prefHeight="26.0" prefWidth="180.0" />
+    <TextField fx:id="precioField" layoutX="180.0" layoutY="280.0" prefHeight="26.0" prefWidth="180.0" />
 
-    <Button fx:id="eliminarButton" layoutX="40.0" layoutY="360.0" mnemonicParsing="false" onAction="#onEliminar"
-            prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #d9534f; -fx-text-fill: white;"
-            text="Eliminar">
+    <Button fx:id="eliminarButton" layoutX="127.0" layoutY="394.0" mnemonicParsing="false" onAction="#onEliminar" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #d9534f; -fx-text-fill: white;" styleClass="btn" text="Eliminar">
         <font>
-            <Font name="System Bold" size="12.0"/>
+            <Font name="System Bold" size="12.0" />
         </font>
     </Button>
 
-    <Button fx:id="cancelarButton" layoutX="180.0" layoutY="360.0" mnemonicParsing="false" onAction="#onCancelar"
-            prefHeight="30.0" prefWidth="80.0" text="Cancelar"/>
+    <Button fx:id="cancelarButton" layoutX="343.0" layoutY="19.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="30.0" prefWidth="33.0" styleClass="btn" text="X" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
 
-    <Button fx:id="guardarButton" layoutX="270.0" layoutY="360.0" mnemonicParsing="false" onAction="#onGuardar"
-            prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #4d5e9e; -fx-text-fill: white;"
-            text="Guardar">
+    <Button fx:id="guardarButton" layoutX="38.0" layoutY="359.0" mnemonicParsing="false" onAction="#onGuardar" prefHeight="30.0" prefWidth="98.0" styleClass="btn" text="Guardar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0">
         <font>
-            <Font name="System Bold" size="12.0"/>
+            <Font name="System Bold" size="12.0" />
         </font>
     </Button>
 </AnchorPane>

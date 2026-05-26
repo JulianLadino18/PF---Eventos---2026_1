@@ -42,6 +42,26 @@ public class AdminDashboardController {
     private VBox menu;
 
     @FXML
+    private Button btnDashboard;
+
+    @FXML
+    private Button btnEventos;
+
+    @FXML
+    private Button btnIncidencias;
+
+    @FXML
+    private Button btnRecintos;
+
+    @FXML
+    private Button btnUsuarios;
+
+    @FXML
+    private Button btnAdmins;
+
+
+
+    @FXML
     void onCerrarSesion(ActionEvent event) {
         try {
             //Al presionar cerrar sesión se tienen que borrar los datos de referencia al usuario loggeado
@@ -80,7 +100,7 @@ public class AdminDashboardController {
             //Extraer el controlador del perfil
             PerfilAdminController perfilController = loader.getController();
 
-            //Pasar el usuario que acabamos de recibir en el Dashboard al controler de perfil
+            //Pasar el usuario que acabamos de recibir en el Dashboard al controller de perfil
             perfilController.setDatosAdmin(this.loggedUser);
 
             //Mostramos la ventana dentro del AnchorPane de contenido
@@ -91,5 +111,124 @@ public class AdminDashboardController {
             System.out.println("Error al cargar la vista de Perfil.");
         }
     }
+
+    @FXML
+    void onHome(ActionEvent event) {
+        try {
+            //Cargar la vista del inicio del dashboard
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/DashboardAdminContenido.fxml"));
+            Node nuevaEscena = loader.load();
+
+            //Extraer el controlador del inicio
+            PerfilAdminController perfilController = loader.getController();
+
+            //Pasar el usuario que acabamos de recibir en el Dashboard al controller de perfil
+            perfilController.setDatosAdmin(this.loggedUser);
+
+            //Mostramos la ventana dentro del AnchorPane de contenido
+            contenido.getChildren().setAll(nuevaEscena);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista de Perfil.");
+        }
+    }
+
+    @FXML
+    void onEventos(ActionEvent event) {
+        try {
+            //Cargar la vista de Eventos
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/Eventos.fxml"));
+            Node nuevaEscena = loader.load();
+
+            //Extraer el controlador de Eventos
+            EventosController EventosController = loader.getController();
+
+            //Mostramos la ventana dentro del AnchorPane de contenido
+            contenido.getChildren().setAll(nuevaEscena);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista de Perfil.");
+        }
+    }
+
+    @FXML
+    void onRecintos(ActionEvent event) {
+        try {
+            //Cargar la vista de Recintos
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/Recintos.fxml"));
+            Node nuevaEscena = loader.load();
+
+            //Extraer el controlador de recintos
+            RecintosController RecintosController = loader.getController();
+
+            //Mostramos la ventana dentro del AnchorPane de contenido
+            contenido.getChildren().setAll(nuevaEscena);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista de Perfil.");
+        }
+    }
+
+    @FXML
+    void onIncidencias(ActionEvent event) {
+        try {
+            //Cargar la vista de incidencias
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/Incidencias.fxml"));
+            Node nuevaEscena = loader.load();
+
+            //Extraer el controlador de incidencias
+            IncidenciasController IncidenciasController = loader.getController();
+
+            //Mostramos la ventana dentro del AnchorPane de contenido
+            contenido.getChildren().setAll(nuevaEscena);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista de Perfil.");
+        }
+    }
+
+    @FXML
+    void onUsuarios(ActionEvent event) {
+        try {
+            //Cargar la vista de Usuarios
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/Usuarios.fxml"));
+            Node nuevaEscena = loader.load();
+
+            //Extraer el controlador de Usuarios
+            UsuariosController UsuariosController = loader.getController();
+
+            //Mostramos la ventana dentro del AnchorPane de contenido
+            contenido.getChildren().setAll(nuevaEscena);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista de Perfil.");
+        }
+    }
+
+    @FXML
+    void onAdmins(ActionEvent event) {
+        try {
+            //Cargar la vista de Usuarios
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/GestionarAdmins.fxml"));
+            Node nuevaEscena = loader.load();
+
+            //Extraer el controlador de Usuarios
+            GestionarAdminsController GestionarAdminsController = loader.getController();
+
+            //Mostramos la ventana dentro del AnchorPane de contenido
+            contenido.getChildren().setAll(nuevaEscena);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar la vista de Perfil.");
+        }
+    }
+
+
 
 }
