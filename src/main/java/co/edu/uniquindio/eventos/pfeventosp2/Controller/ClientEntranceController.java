@@ -47,11 +47,13 @@ public class ClientEntranceController {
             }
         }
 
+        SistemaReservaFacade fachada = new SistemaReservaFacade();
 
-        // Revisar las compras
-        for (Compra c : CompraRepository.getInstance().getListaCompras()) {
+        // Revisar las compras reales
+        for (Compra c : fachada.obtenerComprasRealizadas()) {
             if (c.getEvento().getIdEvento().equals(eventoSeleccionado.getIdEvento()) && !(c.getEstado() instanceof EstadoCancelada)) {
                 String estadoOcupacion = (c.getEstado() instanceof EstadoPagada) ? "VENDIDO" : "RESERVADO";
+
                 for (Entrada e : c.getItemsCompra()) {
                     if (e.getAsiento() != null) {
                         for (Zona zonaMapa : eventoSeleccionado.getRecinto().getZonas()) {
@@ -68,7 +70,6 @@ public class ClientEntranceController {
             }
         }
     }
-
     //mapa
     public void Mapa() {
         vboxMapa.getChildren().clear();
@@ -166,7 +167,7 @@ public class ClientEntranceController {
     }
 
     private void actualizarCarro() {
-        vboxCarrito.getChildren().clear();
+        vboxCarrito.getChildren();
         double total = 0;
 
         for (Entrada e : carritoEntradas) {

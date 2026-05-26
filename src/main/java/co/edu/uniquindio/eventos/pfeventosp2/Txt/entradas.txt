@@ -2,3 +2,7 @@ ENT-001@@@Z001@@@VIP-A-1@@@ACTIVA@@@Entrada para zona: VIP + Parqueadero ($20000
 ENT-002@@@Z001@@@VIP-A-3@@@ACTIVA@@@Entrada para zona: VIP + Fast Pass (Fila preferencial) Precio: $15000.0
 ENT-003@@@Z002@@@NULL@@@ACTIVA@@@Entrada para zona: General + Combo Alimentación (Combo Perro Caliente) Precio: $30000.0
 ENT-004@@@Z003@@@PLA-A-1@@@ACTIVA@@@Entrada para zona: Platea
+TKT-1779816781761@@@Z002@@@GEN-A-2@@@ACTIVA@@@Entrada para zona: General + Parqueadero ($20000.0) + Souvenir Oficial (Camiseta del Evento) Precio: $15000.0
+TKT-1779816782485@@@Z002@@@GEN-B-5@@@ACTIVA@@@Entrada para zona: General + Parqueadero ($20000.0) + Souvenir Oficial (Camiseta del Evento) Precio: $15000.0
+TKT-1779816783175@@@Z002@@@GEN-A-8@@@ACTIVA@@@Entrada para zona: General + Parqueadero ($20000.0) + Souvenir Oficial (Camiseta del Evento) Precio: $15000.0
+TKT-1779816783689@@@Z002@@@GEN-B-9@@@ACTIVA@@@Entrada para zona: General + Parqueadero ($20000.0) + Souvenir Oficial (Camiseta del Evento) Precio: $15000.0

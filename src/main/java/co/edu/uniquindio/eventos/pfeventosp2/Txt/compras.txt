@@ -1,6 +1,11 @@
-COM-001@@@2001@@@E001@@@2026-05-25T14:02:58.435319800@@@580000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Souvenir,AccesoRapido
-COM-002@@@2002@@@E002@@@2026-05-25T14:02:58.435319800@@@120000.0@@@EstadoCreada@@@Vacio@@@Ninguno
-C-1779734847389@@@2001@@@E001@@@2026-05-25T14:02:58.435319800@@@305000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Alimentacion
-C-1779735740213@@@2001@@@E002@@@2026-05-25T14:02:58.435319800@@@240000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Alimentacion,AccesoRapido,Souvenir
-C-1779735765942@@@2001@@@E001@@@2026-05-25T14:02:58.435319800@@@250000.0@@@EstadoCancelada@@@Vacio@@@Ninguno
-C-1779809542710@@@2001@@@E001@@@2026-05-26T10:32:22.712438800@@@500000.0@@@EstadoPagada@@@TKT-1779809539059,TKT-1779809540167@@@Ninguno
+COM-001@@@2001@@@E001@@@2026-05-26T12:12:01.576442200@@@580000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Souvenir,AccesoRapido
+COM-002@@@2002@@@E002@@@2026-05-26T12:12:01.577706400@@@120000.0@@@EstadoCreada@@@Vacio@@@Ninguno
+C-1779734847389@@@2001@@@E001@@@2026-05-26T12:12:01.577706400@@@305000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Alimentacion
+C-1779735740213@@@2001@@@E002@@@2026-05-26T12:12:01.577706400@@@240000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero,Alimentacion,AccesoRapido,Souvenir
+C-1779735765942@@@2001@@@E001@@@2026-05-26T12:12:01.577706400@@@250000.0@@@EstadoCancelada@@@Vacio@@@Ninguno
+C-1779809542710@@@2001@@@E001@@@2026-05-26T12:12:01.577706400@@@500000.0@@@EstadoPagada@@@Vacio@@@Ninguno
+C-1779812752698@@@2001@@@E001@@@2026-05-26T12:12:01.578711800@@@100000.0@@@EstadoCancelada@@@Vacio@@@Parqueadero
+C-1779812852655@@@2001@@@E001@@@2026-05-26T12:12:01.578711800@@@80000.0@@@EstadoCancelada@@@Vacio@@@Ninguno
+C-1779813849820@@@2001@@@E001@@@2026-05-26T12:12:01.578711800@@@80000.0@@@EstadoCancelada@@@Vacio@@@Ninguno
+C-1779815035327@@@2001@@@E001@@@2026-05-26T12:12:01.578711800@@@130000.0@@@EstadoCancelada@@@Vacio@@@AccesoRapido
+C-1779816784809@@@2001@@@E001@@@2026-05-26T12:33:04.809291100@@@460000.0@@@EstadoPagada@@@TKT-1779816781761,TKT-1779816782485,TKT-1779816783175,TKT-1779816783689@@@Parqueadero,Souvenir

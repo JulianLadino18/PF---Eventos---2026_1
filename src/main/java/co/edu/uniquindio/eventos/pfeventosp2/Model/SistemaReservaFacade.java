@@ -21,7 +21,9 @@ public class SistemaReservaFacade {
     private List<Entrada> entradasDisponibles;
     private List<Compra> comprasRealizadas;
 
-    //Constructor (Inicialización en Cascada)
+    // ==========================================
+    // 3. CONSTRUCTOR (Inicialización en Cascada)
+    // ==========================================
     public SistemaReservaFacade() {
         //esto es para instanciar los repositorios
         this.userRepository = UserRepository.getInstance();
@@ -84,32 +86,41 @@ public class SistemaReservaFacade {
         return this.recintosDisponibles;
     }
 
+    public List<Compra> obtenerComprasRealizadas() {
+        return this.comprasRealizadas;
+    }
+
     //Métodos para procesar el pago
     //el método sirve para validar el pago y guarda la info en el repositorio
+    // Dentro de SistemaReservaFacade.java
+
     public boolean realizarCompra(Compra nuevaCompra, Usuario comprador, String metodoPagoTexto) {
-        //esto sirve para obtener el adaptador correspondiente
         IPagoAdapter adaptador = comprador.obtenerAdapterDesdeString(metodoPagoTexto);
         if (adaptador == null) return false;
 
-        //crea el objeto pago y lo ejecuta
         Pago transaccion = new Pago(nuevaCompra.getTotal(), adaptador);
         boolean pagoExitoso = transaccion.ejecutarPago();
 
-        //si el pago es exitoso
+        // Si el pago es exitoso
         if (pagoExitoso) {
             try {
-                //actualiza el estado de la compra
+                //  Actualiza el estado de la compra
                 nuevaCompra.setEstado(new EstadoPagada());
 
-                //guarda en el txt
+                for (Entrada boleto : nuevaCompra.getItemsCompra()) {
+                    entradaRepository.guardarEntrada(boleto);
+                    this.entradasDisponibles.add(boleto);
+                }
+
+                // Guarda la compra en el txt (ahora sí encontrará los boletos al recargar)
                 compraRepository.guardarCompra(nuevaCompra);
 
-                //actualiza en las listas
+                //  Actualiza en las listas
                 this.comprasRealizadas.add(nuevaCompra);
 
                 return true;
             } catch (IOException e) {
-                System.out.println("Error al guardar la compra: " + e.getMessage());
+                System.out.println("Error al guardar los datos de la compra: " + e.getMessage());
                 return false;
             }
         }
