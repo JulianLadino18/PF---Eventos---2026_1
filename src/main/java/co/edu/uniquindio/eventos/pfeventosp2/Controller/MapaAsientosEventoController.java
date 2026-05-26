@@ -198,7 +198,7 @@ public class MapaAsientosEventoController {
 
     private void abrirDetalleAsiento(Zona zona, Asiento asiento) {
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/DetalleAsiento.fxml"));
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/DetalleAsiento.fxml"));
             javafx.scene.Parent root = loader.load();
 
             DetalleAsientoController controller = loader.getController();

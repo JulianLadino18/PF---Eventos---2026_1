@@ -43,7 +43,7 @@ public class GestionarAdminsController {
     void onNuevo() {
         try {
             //Cargamos el archivo FXML de la nueva ventana
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/NuevoAdmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/NuevoAdmin.fxml"));
             Parent root = loader.load();
 
             //Creamos el Stage (la ventana nueva)
@@ -80,7 +80,7 @@ public class GestionarAdminsController {
 
         try {
             //Cargar la vista de edición
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/EditarAdmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/EditarAdmin.fxml"));
             Parent root = loader.load();
 
             //Pasar los datos al controlador de edición ANTES de mostrarlo

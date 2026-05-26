@@ -111,7 +111,7 @@ public class RecintosController {
     void onNuevo(ActionEvent event) {
         try {
             //Cargar la vista
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/NuevoRecinto.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/NuevoRecinto.fxml"));
             Parent root = loader.load();
 
             //Configurar la ventana modal
@@ -144,7 +144,7 @@ public class RecintosController {
 
         try {
             //Cargar FXML
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/EditarRecinto.fxml"));
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/EditarRecinto.fxml"));
             javafx.scene.Parent root = loader.load();
 
             //Pasar los datos al controller de editar recinto
@@ -219,7 +219,7 @@ public class RecintosController {
         }
 
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/GestionarZonas.fxml"));
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/GestionarZonas.fxml"));
             javafx.scene.Parent root = loader.load();
 
             //Pasamos el recinto seleccionado al nuevo controlador

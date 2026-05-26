@@ -72,7 +72,7 @@ public class UsuariosController {
     @FXML
     void onNuevo(ActionEvent event) {
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/NuevoUsuario.fxml"));
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/NuevoUsuario.fxml"));
             javafx.scene.Parent root = loader.load();
 
             Stage stage = new Stage();
@@ -108,7 +108,7 @@ public class UsuariosController {
         }
 
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/EditarUsuario.fxml"));
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/EditarUsuario.fxml"));
             javafx.scene.Parent root = loader.load();
 
             EditarUsuarioController controller = loader.getController();

@@ -4,3 +4,5 @@ BAL-A-1
 PLA-A-2
 GEN-A-3
 ZON-A-4
+GEN-A-4
+GEN-B-2

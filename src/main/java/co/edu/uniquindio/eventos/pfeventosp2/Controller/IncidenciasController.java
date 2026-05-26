@@ -104,7 +104,7 @@ public class IncidenciasController {
     @FXML
     void onNuevaIncidencia(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/NuevaIncidencia.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/NuevaIncidencia.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.WINDOW_MODAL);

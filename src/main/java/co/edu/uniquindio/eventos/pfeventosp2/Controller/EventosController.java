@@ -367,7 +367,7 @@ public class EventosController {
 
         try {
             //Cargar la vista del mapa de asientos que creamos hace un momento
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/eventos/pfeventosp2/AdminEscenas/MapaAsientosEvento.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/MapaAsientosEvento.fxml"));
             Parent root = loader.load();
 
             //Obtener el controlador del mapa y pasarle el evento seleccionado

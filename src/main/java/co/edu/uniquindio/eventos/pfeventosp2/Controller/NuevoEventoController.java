@@ -13,7 +13,8 @@ import java.util.List;
 
 public class NuevoEventoController {
     // --- Componentes FXML ---
-    @FXML private Button cancelarButton;
+    @FXML
+    private Button cancelarButton;
     @FXML
     private Button crearButton;
 

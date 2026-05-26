@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="596.0" prefWidth="721.0" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientProfileController">
+<AnchorPane prefHeight="410.0" prefWidth="1080.0" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientProfileController">
    <children>
-      <Label layoutX="29.0" layoutY="28.0" prefHeight="31.0" prefWidth="149.0" styleClass="tittle-dark" text="Datos Personales" textFill="#000ea6" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <Label layoutX="24.0" layoutY="22.0" prefHeight="31.0" prefWidth="149.0" styleClass="tittle-dark" text="Datos Personales" textFill="#000ea6" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="22.0">
          <font>
             <Font name="System Bold" size="31.0" />
          </font>
@@ -45,13 +45,16 @@
       <TextField fx:id="txtPhone" layoutX="175.0" layoutY="220.0" />
       <TextField fx:id="txtEmail" layoutX="491.0" layoutY="156.0" />
       <TextField fx:id="txtId" layoutX="175.0" layoutY="285.0" />
-      <HBox fx:id="contenedorB" alignment="CENTER" layoutX="387.0" layoutY="473.0" prefHeight="92.0" prefWidth="304.0">
+      <HBox fx:id="contenedorB" alignment="CENTER" layoutX="9.0" layoutY="332.0" prefHeight="63.0" prefWidth="233.0">
          <children>
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onSave" prefHeight="28.0" prefWidth="96.0" styleClass="btn" text="Guardar">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
             <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#onEdit" prefHeight="28.0" prefWidth="96.0" styleClass="btn" text="Modificar">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin></Button>
-            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onSave" prefHeight="28.0" prefWidth="96.0" styleClass="btn" text="Guardar" />
          </children>
       </HBox>
       <Button fx:id="btnCancel" layoutX="671.0" layoutY="26.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="28.0" prefWidth="37.0" styleClass="btn" text="x" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
