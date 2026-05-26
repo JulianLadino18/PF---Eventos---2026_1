@@ -6,44 +6,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="605.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.SingUpClientController">
+<AnchorPane prefHeight="605.0" prefWidth="440.0" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.SingUpClientController">
    <children>
-      <Label layoutX="110.0" layoutY="38.0" text="Registrate my bro" textFill="RED">
+      <Label layoutX="163.0" layoutY="55.0" styleClass="tittle-dark" text="Crea una cuenta" textFill="RED">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="135.0" text="Cedula">
+      <Label layoutX="69.0" layoutY="135.0" styleClass="text-dark" text="Cedula">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="62.0" layoutY="178.0" text="Nombre">
+      <Label layoutX="69.0" layoutY="179.0" styleClass="text-dark" text="Nombre">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="69.0" layoutY="223.0" text="Correo">
+      <Label layoutX="69.0" layoutY="224.0" styleClass="text-dark" text="Correo">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="275.0" text="Contraseña">
+      <Label layoutX="67.0" layoutY="269.0" styleClass="text-dark" text="Contraseña">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="332.0" text="Telefono">
+      <Label layoutX="67.0" layoutY="314.0" styleClass="text-dark" text="Telefono">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="182.0" layoutY="462.0" mnemonicParsing="false" onAction="#onGoClientRegister" text="Registrarse" />
-      <TextField fx:id="txtId" layoutX="194.0" layoutY="136.0" />
-      <TextField fx:id="txtName" layoutX="194.0" layoutY="179.0" />
-      <TextField fx:id="txtPhone" layoutX="194.0" layoutY="333.0" />
-      <TextField fx:id="txtEmail" layoutX="194.0" layoutY="224.0" />
-      <TextField fx:id="txtPassword" layoutX="194.0" layoutY="276.0" />
+      <Button layoutX="170.0" layoutY="476.0" mnemonicParsing="false" onAction="#onGoClientRegister" styleClass="btn" text="Registrarse" />
+      <TextField fx:id="txtId" layoutX="194.0" layoutY="128.0" />
+      <TextField fx:id="txtName" layoutX="194.0" layoutY="172.0" />
+      <TextField fx:id="txtPhone" layoutX="194.0" layoutY="307.0" />
+      <TextField fx:id="txtEmail" layoutX="194.0" layoutY="217.0" />
+      <TextField fx:id="txtPassword" layoutX="194.0" layoutY="262.0" />
    </children>
 </AnchorPane>

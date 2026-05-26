@@ -1,4 +1,14 @@
 ENT-001@@@Z001@@@VIP-A-1@@@Vendido@@@Parqueadero:20000|Souvenir:45000:Camiseta Oficial
 ENT-002@@@Z001@@@VIP-A-2@@@Vendido@@@AccesoRapido:15000
 ENT-003@@@Z002@@@NULL@@@Disponible@@@Alimentacion:30000:Combo Perro Caliente
-ENT-004@@@Z003@@@PLA-A-1@@@Vendido@@@Ninguno
+ENT-004@@@Z003@@@PLA-A-1@@@Vendido@@@NingunoTKT-1779814097314@@@Z001@@@VIP-A-1@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814097553@@@Z001@@@VIP-A-2@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814113528@@@Z001@@@VIP-A-1@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814113913@@@Z001@@@VIP-A-3@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814114769@@@Z001@@@VIP-B-1@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814115769@@@Z001@@@VIP-B-3@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814116137@@@Z001@@@VIP-B-2@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814116937@@@Z001@@@VIP-A-4@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814117209@@@Z001@@@VIP-A-5@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814117433@@@Z001@@@VIP-B-5@@@ACTIVA@@@Entrada para zona: VIP
+TKT-1779814117672@@@Z001@@@VIP-B-4@@@ACTIVA@@@Entrada para zona: VIP

@@ -47,11 +47,13 @@ public class ClientEntranceController {
             }
         }
 
+        SistemaReservaFacade fachada = new SistemaReservaFacade();
 
-        // Revisar las compras
-        for (Compra c : CompraRepository.getInstance().getListaCompras()) {
+        // Revisar las compras reales
+        for (Compra c : fachada.obtenerComprasRealizadas()) {
             if (c.getEvento().getIdEvento().equals(eventoSeleccionado.getIdEvento()) && !(c.getEstado() instanceof EstadoCancelada)) {
                 String estadoOcupacion = (c.getEstado() instanceof EstadoPagada) ? "VENDIDO" : "RESERVADO";
+
                 for (Entrada e : c.getItemsCompra()) {
                     if (e.getAsiento() != null) {
                         for (Zona zonaMapa : eventoSeleccionado.getRecinto().getZonas()) {
@@ -68,7 +70,6 @@ public class ClientEntranceController {
             }
         }
     }
-
     //mapa
     public void Mapa() {
         vboxMapa.getChildren().clear();
@@ -82,7 +83,7 @@ public class ClientEntranceController {
         Label escenario = new Label("ESCENARIO");
         escenario.setPrefSize(400, 40);
         escenario.setAlignment(Pos.CENTER);
-        escenario.setStyle("-fx-background-color: #d1d5db; -fx-border-color: #9ca3af; -fx-border-width: 2; -fx-font-weight: bold;");
+        escenario.setStyle("-fx-background-color: #d1d5db; -fx-text-fill: #0b2844; -fx-border-color: #9ca3af; -fx-border-width: 2; -fx-font-weight: bold;");
         vboxMapa.getChildren().add(escenario);
 
         HBox contenedorZonasH = new HBox(20);
@@ -91,10 +92,10 @@ public class ClientEntranceController {
         for (Zona zona : eventoSeleccionado.getRecinto().getZonas()) {
             VBox zonaBox = new VBox(10);
             zonaBox.setAlignment(Pos.TOP_CENTER);
-            zonaBox.setStyle("-fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 10;");
+            zonaBox.setStyle("-fx-border-color: #cccccc; -fx-text-fill: #0b2844;-fx-border-radius: 5; -fx-padding: 10;");
 
             Label lblZona = new Label(zona.getNombre() + " ($" + zona.getPrecioBase() + ")");
-            lblZona.setStyle("-fx-font-weight: bold;");
+            lblZona.setStyle("-fx-text-fill: #0b2844;-fx-font-weight: bold;");
 
             GridPane gridAsientos = new GridPane();
             gridAsientos.setHgap(5); gridAsientos.setVgap(5);
@@ -166,12 +167,12 @@ public class ClientEntranceController {
     }
 
     private void actualizarCarro() {
-        vboxCarrito.getChildren().clear();
+        vboxCarrito.getChildren();
         double total = 0;
 
         for (Entrada e : carritoEntradas) {
             Label lblItem = new Label("• " + e.getZona().getNombre() + " (" + e.getAsiento().getIdAsiento() + ") - $" + e.getZona().getPrecioBase());
-            lblItem.setStyle("-fx-font-size: 12px;");
+            lblItem.setStyle("-fx-text-fill: #0b2844;-fx-font-size: 12px;");
             vboxCarrito.getChildren().add(lblItem);
             total += e.getZona().getPrecioBase();
         }

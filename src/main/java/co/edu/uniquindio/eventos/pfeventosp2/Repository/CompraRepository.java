@@ -128,8 +128,13 @@ public class CompraRepository {
 
     private Usuario buscarUsuario(String id, List<Usuario> usuarios) {
         for (Usuario u : usuarios) {
-            if (u.getId().equals(id)) return u;
+            //Comparamos si el ID es exacto o si el ID del usuario termina con el ID buscado
+            //Esto soluciona que "CL2001" coincida con "2001"
+            if (u.getId().equals(id) || u.getId().endsWith(id)) {
+                return u;
+            }
         }
+        System.out.println("ERROR: No se encontró usuario con ID: " + id);
         return null;
     }
 

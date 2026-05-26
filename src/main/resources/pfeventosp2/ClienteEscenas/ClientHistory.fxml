@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientHistoryController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="410.0" prefWidth="1080.0" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientHistoryController">
     <children>
         <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-            <Label text="Historial de Compras" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Label style="-fx-font-size: 35px; -fx-font-weight: bold;" styleClass="tittle-dark" text="Historial de Compras" />
 
-            <HBox spacing="10.0" alignment="CENTER_LEFT">
-                <TextField fx:id="txtBuscarEvento" promptText="Buscar por nombre evento..." />
-                <DatePicker fx:id="datePickerFiltro" promptText="Filtrar por fecha" />
-                <ComboBox fx:id="comboEstado" promptText="Estado" />
-                <Button text="Limpiar Filtros" onAction="#onLimpiarFiltros"/>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <TextField fx:id="txtBuscarEvento" prefHeight="31.0" prefWidth="212.0" promptText="Buscar por nombre evento..." />
+                <DatePicker fx:id="datePickerFiltro" promptText="Filtrar por fecha" styleClass="btn" />
+                <ComboBox fx:id="comboEstado" prefHeight="31.0" prefWidth="131.0" promptText="Estado" styleClass="btn" />
+                <Button onAction="#onLimpiarFiltros" styleClass="btn" text="Limpiar Filtros" />
             </HBox>
 
             <TableView fx:id="tablaCompras" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colId" text="ID Compra" prefWidth="100"/>
-                    <TableColumn fx:id="colEvento" text="Evento" prefWidth="200"/>
-                    <TableColumn fx:id="colFecha" text="Fecha" prefWidth="120"/>
-                    <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
-                    <TableColumn fx:id="colTotal" text="Total" prefWidth="100"/>
+                    <TableColumn fx:id="colId" prefWidth="100" text="ID Compra" />
+                    <TableColumn fx:id="colEvento" prefWidth="215.20003509521484" text="Evento" />
+                    <TableColumn fx:id="colFecha" prefWidth="104.79998779296875" text="Fecha" />
+                    <TableColumn fx:id="colEstado" prefWidth="154.39999389648438" text="Estado" />
+                    <TableColumn fx:id="colTotal" prefWidth="155.20001220703125" text="Total" />
                 </columns>
             </TableView>
 
-            <HBox spacing="10.0" alignment="CENTER_RIGHT">
-                <Button text="Exportar CSV" onAction="#onExportarCSV" style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
-                <Button text="Exportar PDF" onAction="#onExportarPDF" style="-fx-background-color: #34495e; -fx-text-fill: white;"/>
-                <Button text="Solicitar Cancelación" onAction="#onCancelarCompra" style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Button onAction="#onExportarCSV" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" styleClass="btn" text="Exportar CSV" />
+                <Button onAction="#onExportarPDF" style="-fx-background-color: #34495e; -fx-text-fill: white;" styleClass="btn" text="Exportar PDF" />
+                <Button onAction="#onCancelarCompra" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" styleClass="btn" text="Solicitar Cancelación" />
             </HBox>
         </VBox>
     </children>

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntradaRepository {
-    private static final String rutaEntradas = "src/main/java/co/edu/uniquindio/eventos.pfeventosp2/Txt/entradas.txt";
+    private static final String rutaEntradas = "src/main/java/co/edu/uniquindio/eventos/pfeventosp2/Txt/entradas.txt";
     private List<Entrada> listaEntradas = new ArrayList<>();
     private static EntradaRepository instancia;
 

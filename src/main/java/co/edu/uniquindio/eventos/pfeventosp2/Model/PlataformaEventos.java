@@ -1,8 +1,6 @@
 package co.edu.uniquindio.eventos.pfeventosp2.Model;
 
-import co.edu.uniquindio.eventos.pfeventosp2.Repository.EventoRepository;
-import co.edu.uniquindio.eventos.pfeventosp2.Repository.RecintoRepository;
-import co.edu.uniquindio.eventos.pfeventosp2.Repository.UserRepository;
+import co.edu.uniquindio.eventos.pfeventosp2.Repository.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,6 +16,7 @@ public class PlataformaEventos {
     private List<Persona> listaPersonas;
     private List<Evento> listaEventos;
     private List<Recinto> listaRecintos;
+    private List<Compra> listaCompras;
 
     //repositorios
     private EventoRepository eventoRepo;
@@ -29,6 +28,7 @@ public class PlataformaEventos {
         //aquí se inicializan los repositorios
         this.eventoRepo = EventoRepository.getInstance();
         this.recintoRepo = RecintoRepository.getInstance();
+        this.listaCompras = CompraRepository.getInstance().getListaCompras();
 
         //aquí se cargan los usuarios y los admins desde el repositorio
         this.listaPersonas = UserRepository.getInstance().getPersonas();
@@ -38,6 +38,28 @@ public class PlataformaEventos {
             this.listaRecintos = recintoRepo.cargarRecintos();
             //se necesita la lista recintos para cargar los eventos, ya que se necesita el ID del recinto
             this.listaEventos = eventoRepo.cargarEventos(listaRecintos);
+
+            //Cargar las compras para vincularlas a los usuarios
+            //Se necesitan todas las listas para cargar las compras correctamente
+            List<Usuario> usuarios = new ArrayList<>();
+            for(Persona p : listaPersonas) {
+                if(p instanceof Usuario) usuarios.add((Usuario) p);
+            }
+
+            //Extraer todas las zonas de todos los recintos
+            List<Zona> todasLasZonas = new ArrayList<>();
+            for (Recinto r : listaRecintos) {
+                todasLasZonas.addAll(r.getZonas());
+            }
+
+            List<Entrada> todasLasEntradas = EntradaRepository.getInstance().cargarEntradas(todasLasZonas);
+            System.out.println("DEBUG: Se cargaron " + todasLasEntradas.size() + " entradas desde el archivo.");
+            for(Entrada e : todasLasEntradas) {
+                System.out.println("   Entrada cargada: " + e.getIdEntrada());
+            }
+            //Cargamos las compras desde el txt pasando las listas y se vincula al usuario
+            CompraRepository.getInstance().cargarCompras(usuarios, listaEventos, todasLasEntradas);
+            vincularComprasAUsuarios();
         } catch (IOException e) {
             System.out.println("Error al cargar datos: " + e.getMessage());
             this.listaRecintos = new ArrayList<>();
@@ -65,6 +87,8 @@ public class PlataformaEventos {
     public List<Recinto> getListaRecintos() {
         return listaRecintos;
     }
+
+    public List<Compra> getListaCompras() {return listaCompras;}
 
     public boolean esAdminLogueado() {
         return usuarioAutenticado instanceof Admin;
@@ -95,5 +119,71 @@ public class PlataformaEventos {
     public void registrarRecinto(Recinto recinto) throws IOException {
         listaRecintos.add(recinto);
         recintoRepo.guardarRecinto(recinto);
+    }
+    public void registrarCompra(Compra nuevaCompra) {
+        if (nuevaCompra != null) {
+            this.listaCompras.add(nuevaCompra);
+        }
+    }
+
+    //Método de lógica que actualiza el estado
+    public void actualizarEstadoEventoEnPersistencia(Evento eventoSeleccionado, String nuevoEstado) throws IOException {
+        eventoSeleccionado.cambiarEstado(nuevoEstado);
+        //Llamar al repositorio para guardar el cambio en el TXT
+        EventoRepository.getInstance().actualizarEvento(eventoSeleccionado);
+    }
+
+    //Método de lógica que actualiza el Evento
+    public void actualizarEventoEnPersistencia(Evento eventoSeleccionado) throws IOException {
+        //Llamar al repositorio para guardar el cambio en el TXT
+        EventoRepository.getInstance().actualizarEvento(eventoSeleccionado);
+    }
+
+    public void eliminarEvento(Evento evento) throws IOException {
+        //Eliminar de la lista en memoria
+        listaEventos.remove(evento);
+        //Eliminar del archivo de texto
+        EventoRepository.getInstance().eliminarEventoEnArchivo(evento.getIdEvento());
+    }
+
+    //Método para actualizar un recinto
+    public void actualizarRecintoEnPersistencia(Recinto recintoSeleccionado) throws IOException {
+        //Llama al repositorio para guardar el cambio en el txt de recintos
+        RecintoRepository.getInstance().actualizarRecintoEnArchivo(recintoSeleccionado);
+    }
+
+    // Método para eliminar un recinto completamente
+    public void eliminarRecinto(Recinto recinto) throws IOException {
+        //Eliminar de la lista en memoria
+        listaRecintos.remove(recinto);
+        //Eliminar de los archivos TXT
+        RecintoRepository.getInstance().eliminarRecintoEnArchivo(recinto.getIdRecinto());
+    }
+
+    //Método para vincular las compras al usuario y poder obtener el total gastado
+    public void vincularComprasAUsuarios() {
+        List<Compra> todasLasCompras = CompraRepository.getInstance().getListaCompras();
+
+        //Limpiar el historial por si acaso ya estaban vinculadas
+        for (Persona p : listaPersonas) {
+            if (p instanceof Usuario) {
+                ((Usuario) p).getHistorialCompras().clear();
+            }
+        }
+
+        //Vincular cada compra al usuario correcto
+        for (Compra c : todasLasCompras) {
+            Usuario u = c.getUsuario();
+            if (u != null) {
+                u.agregarCompra(c);
+            }
+        }
+    }
+
+    public void bloquearAsiento(Evento evento, Zona zona, Asiento asiento) throws IOException {
+        //Cambiar el estado en el objeto en memoria
+        asiento.setEstado("BLOQUEADO");
+        //Guardar en el archivo de bloqueos
+        BloqueoRepository.getInstance().guardarBloqueo(asiento.getIdAsiento());
     }
 }

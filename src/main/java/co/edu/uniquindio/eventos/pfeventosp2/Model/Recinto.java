@@ -41,6 +41,18 @@ public class Recinto {
         return zonas;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
     //método para agregar zona
     public void agregarZona(Zona zona) {
         this.zonas.add(zona);
