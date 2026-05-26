@@ -21,6 +21,20 @@ Label,Text{
     -fx-font-family: "Mozilla";
     -fx-font-size: 14px;
 }
+.card{
+    -fx-background-color: rgb(255, 255, 255, 0.1);
+    -fx-background-radius: 15px;
+    -fx-border-color: rgb(255, 255, 255, 0.1);
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0.2, 0, 4);
+}
+.card2{
+    -fx-background-color: #0B2844;
+    -fx-background-radius: 15px;
+    -fx-border-color: rgb(255, 255, 255, 0.1);
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0.2, 0, 4);
+}
 .content{
     -fx-background-color: transparent;
 }
@@ -272,4 +286,75 @@ TextField:focused, PasswordField:focused{
 .combo-box .arrow:hover {
     -fx-background-color: #f5b236;
     -fx-text-fill: #051523;
+}
+.chart-pie {
+    -fx-border-color: white;
+    -fx-text-fill: #ffffff;
+}
+
+.default-color0.chart-pie {
+    -fx-pie-color: #13406D;
+}
+
+.default-color1.chart-pie {
+    -fx-pie-color: #082036;
+}
+
+.default-color2.chart-pie {
+    -fx-pie-color: #F5B236;
+}
+.default-color0.chart-bar{
+    -fx-bar-fill: #13406D;
+}
+
+.default-color1.chart-bar{
+    -fx-bar-fill: #082036;
+}
+
+.default-color2.chart-bar{
+    -fx-bar-fill: #F5B236;
+}
+.chart-bar{
+    -fx-background-radius: 10;
+}
+.chart-plot-background {
+    -fx-background-color: rgb(255, 255, 255, 0.2);
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #E0E0E0;
+}
+.default-color0.chart-series-line {
+    -fx-stroke: #13406D;
+    -fx-stroke-width: 3px;
+}
+.default-color0.chart-line-symbol {
+    -fx-background-color: #082036;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.chart-alternative-row-fill, .chart-alternative-column-fill {
+    -fx-fill: transparent;
+}
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines {
+    -fx-stroke: #ffffff;
+}
+
+.axis {
+    -fx-tick-label-fill: #ffffff;
+    -fx-font-size: 11px;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+.chart-legend-item {
+    -fx-text-fill: #ffffff;
+}
+.chart-pie-label {
+    -fx-fill: #FFFFFF;
 }

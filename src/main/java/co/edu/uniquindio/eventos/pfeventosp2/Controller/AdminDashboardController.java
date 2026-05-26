@@ -116,21 +116,18 @@ public class AdminDashboardController {
     void onHome(ActionEvent event) {
         try {
             //Cargar la vista del inicio del dashboard
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/DashboardAdminContenido.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/Charts.fxml"));
             Node nuevaEscena = loader.load();
 
             //Extraer el controlador del inicio
-            PerfilAdminController perfilController = loader.getController();
-
-            //Pasar el usuario que acabamos de recibir en el Dashboard al controller de perfil
-            perfilController.setDatosAdmin(this.loggedUser);
+            ChartController ChartController = loader.getController();
 
             //Mostramos la ventana dentro del AnchorPane de contenido
             contenido.getChildren().setAll(nuevaEscena);
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar la vista de Perfil.");
+            System.out.println("Error al cargar la vista.");
         }
     }
 
@@ -149,7 +146,7 @@ public class AdminDashboardController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar la vista de Perfil.");
+            System.out.println("Error al cargar la vista de Eventos.");
         }
     }
 
@@ -168,7 +165,7 @@ public class AdminDashboardController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar la vista de Perfil.");
+            System.out.println("Error al cargar la vista de Recintos.");
         }
     }
 
@@ -187,7 +184,7 @@ public class AdminDashboardController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar la vista de Perfil.");
+            System.out.println("Error al cargar la vista de Incidencias.");
         }
     }
 
@@ -206,7 +203,7 @@ public class AdminDashboardController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar la vista de Perfil.");
+            System.out.println("Error al cargar la vista de Usuarios.");
         }
     }
 
@@ -225,7 +222,7 @@ public class AdminDashboardController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error al cargar la vista de Perfil.");
+            System.out.println("Error al cargar la vista de Admins.");
         }
     }
 

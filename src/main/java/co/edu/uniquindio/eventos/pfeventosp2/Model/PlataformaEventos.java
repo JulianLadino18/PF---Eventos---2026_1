@@ -16,6 +16,7 @@ public class PlataformaEventos {
     private List<Persona> listaPersonas;
     private List<Evento> listaEventos;
     private List<Recinto> listaRecintos;
+    private List<Compra> listaCompras;
 
     //repositorios
     private EventoRepository eventoRepo;
@@ -27,6 +28,7 @@ public class PlataformaEventos {
         //aquí se inicializan los repositorios
         this.eventoRepo = EventoRepository.getInstance();
         this.recintoRepo = RecintoRepository.getInstance();
+        this.listaCompras = CompraRepository.getInstance().getListaCompras();
 
         //aquí se cargan los usuarios y los admins desde el repositorio
         this.listaPersonas = UserRepository.getInstance().getPersonas();
@@ -86,6 +88,8 @@ public class PlataformaEventos {
         return listaRecintos;
     }
 
+    public List<Compra> getListaCompras() {return listaCompras;}
+
     public boolean esAdminLogueado() {
         return usuarioAutenticado instanceof Admin;
     }
@@ -115,6 +119,11 @@ public class PlataformaEventos {
     public void registrarRecinto(Recinto recinto) throws IOException {
         listaRecintos.add(recinto);
         recintoRepo.guardarRecinto(recinto);
+    }
+    public void registrarCompra(Compra nuevaCompra) {
+        if (nuevaCompra != null) {
+            this.listaCompras.add(nuevaCompra);
+        }
     }
 
     //Método de lógica que actualiza el estado

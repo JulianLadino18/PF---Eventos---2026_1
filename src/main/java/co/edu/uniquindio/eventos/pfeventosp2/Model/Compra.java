@@ -79,6 +79,7 @@ public class Compra {
         return itemsCompra;
     }
 
+
     public void setTotal(double total) {
         this.total = total;
     }
