@@ -160,8 +160,8 @@ public class AdminDashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/pfeventosp2/AdminEscenas/GestionarCompras.fxml"));
             Node nuevaEscena = loader.load();
 
-            //Extraer el controlador de Eventos
-            EventosController EventosController = loader.getController();
+            //Extraer el controlador de Compras
+            GestionarComprasController GestionarComprasController = loader.getController();
 
             //Mostramos la ventana dentro del AnchorPane de contenido
             contenido.getChildren().setAll(nuevaEscena);

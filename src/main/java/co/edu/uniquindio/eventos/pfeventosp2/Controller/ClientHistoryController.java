@@ -119,7 +119,7 @@ public class ClientHistoryController {
 
         // sobreescribir los datos
         try {
-            CompraRepository.getInstance().sobrescribirArchivoCompras();
+            CompraRepository.getInstance().actualizarArchivoCompras();
         } catch (IOException e) {
             mostrarAlerta("Error", "No se pudo actualizar el archivo de compras.", Alert.AlertType.ERROR);
             System.out.println(e.getMessage());
