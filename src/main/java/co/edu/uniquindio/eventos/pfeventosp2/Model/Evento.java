@@ -1,5 +1,7 @@
 package co.edu.uniquindio.eventos.pfeventosp2.Model;
 
+import co.edu.uniquindio.eventos.pfeventosp2.Repository.IncidenciaRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,10 +142,15 @@ public class Evento {
     }
 
     public void cambiarEstado(String nuevoEstado) {
+        String estadoAnterior = this.estado;
         this.estado = nuevoEstado;
         // Si el evento se cancela o pausa, se notificará a todos los usuarios automáticamente
         if (nuevoEstado.equals("CANCELADO") || nuevoEstado.equals("PAUSADO")) {
             notificarClientes();
+        }
+        //Solo si el estado realmente cambió, se notifican a los observadores
+        if (estadoAnterior != null && !estadoAnterior.equals(nuevoEstado)) {
+            notificarClientes(); //Esto también activará el notificarCambio de PlataformaEventos
         }
     }
 

@@ -21,11 +21,18 @@ public class DetalleAsientoController {
     @FXML
     private Label lblNombreUsuario, lblIdUsuario;
     @FXML
-    private Button btnBloquear;
-
+    private Button btnBloquear, btnDesbloquear;
     private Evento eventoSeleccionado;
     private Zona zonaSeleccionada;
     private Asiento asientoSeleccionado;
+
+    //Esto es para configurar la visibilidad inicial de los botones
+    @FXML
+    public void initialize() {
+        //Inicialmente se ocultan todos
+        btnBloquear.setVisible(false);
+        btnDesbloquear.setVisible(false);
+    }
 
     public void setDatos(Evento evento, Zona zona, Asiento asiento) {
         this.eventoSeleccionado = evento;
@@ -36,11 +43,18 @@ public class DetalleAsientoController {
         lblEstado.setText(asiento.getEstado());
         lblPrecio.setText("$" + zona.getPrecioBase());
 
-        //Si la silla no está disponible, buscamos quién la tiene
+        //Si la silla no está disponible, se busca quién la tiene
         if (asiento.getEstado().equalsIgnoreCase("VENDIDO") || asiento.getEstado().equalsIgnoreCase("RESERVADO")) {
             buscarYMostrarComprador(evento, asiento);
         } else {
             boxComprador.setVisible(false);
+        }
+
+        //Lógica de visibilidad de botones
+        if (asiento.getEstado().equalsIgnoreCase("DISPONIBLE")) {
+            btnBloquear.setVisible(true);
+        } else if (asiento.getEstado().equalsIgnoreCase("BLOQUEADO")) {
+            btnDesbloquear.setVisible(true);
         }
     }
 
@@ -100,4 +114,23 @@ public class DetalleAsientoController {
         ((Stage) lblId.getScene().getWindow()).close();
     }
 
+    @FXML
+    void onDesbloquear(ActionEvent event) {
+        try {
+            PlataformaEventos.getInstancia().desbloquearAsiento(zonaSeleccionada, asientoSeleccionado);
+            //Cambiar texto a disponible
+            lblEstado.setText("DISPONIBLE");
+            //cambiar visibilidad de los botones
+            btnDesbloquear.setVisible(false);
+            btnBloquear.setVisible(true);
+
+            //Cuando se desbloquee el asiento se cierra la ventana
+            Stage stage = (Stage) btnDesbloquear.getScene().getWindow();
+            stage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Error al desbloquear: " + e.getMessage());
+        }
+    }
 }

@@ -36,8 +36,6 @@ public class MapaAsientosEventoController {
 
     //Método para sincronizar los estados de los asientos al mapa mediante el id
     private void sincronizarEstadosAsientos() {
-        System.out.println("\n--- INICIANDO SINCRONIZACIÓN DE ASIENTOS ---");
-
         //Se ponen todos los asientos disponibles por defecto
         for (Zona z : eventoActual.getRecinto().getZonas()) {
             if (z.getAsientos() != null) {
@@ -65,34 +63,20 @@ public class MapaAsientosEventoController {
 
         //Revisar todas las compras de la plataforma
         for (Compra c : CompraRepository.getInstance().getListaCompras()) {
-
-            //Si la compra es de este evento específico
+            // Si la compra es de este evento específico
             if (c.getEvento().getIdEvento().equals(eventoActual.getIdEvento())) {
-                System.out.println("Compra encontrada: " + c.getIdCompra() + " | Estado: " + c.getEstado().getClass().getSimpleName());
-
                 //Si la compra fue cancelada, los asientos siguen disponibles
                 if (c.getEstado() instanceof EstadoCancelada) {
-                    System.out.println("(Ignorada porque está Cancelada)");
                     continue;
                 }
 
                 //Si está Pagada = VENDIDO (Rojo), si está Creada = RESERVADO (Naranja)
                 String estadoOcupacion = (c.getEstado() instanceof EstadoPagada) ? "VENDIDO" : "RESERVADO";
-                System.out.println("Cantidad de entradas en memoria para esta compra: " + c.getItemsCompra().size());
 
-                // 3. Extraer las entradas de la compra
+                //Extraer las entradas de la compra
                 for (Entrada e : c.getItemsCompra()) {
-                    System.out.print("Revisando Entrada: " + e.getIdEntrada() + " | Asiento asignado: ");
-                    if (e.getAsiento() != null) {
-                        System.out.println(e.getAsiento().getIdAsiento());
-                    } else {
-                        System.out.println("ES NULL (Es Zona General o no se encontró en el TXT)");
-                    }
-                    // -----------------------------
-
                     if (e.getAsiento() != null) {
                         String idAsientoComprado = e.getAsiento().getIdAsiento();
-                        boolean asientoEncontradoMapa = false;
 
                         //Buscar ese id exacto dentro de las zonas del mapa visual y actualizarlo
                         for (Zona zonaMapa : eventoActual.getRecinto().getZonas()) {
@@ -101,21 +85,14 @@ public class MapaAsientosEventoController {
                                     if (asientoVisual.getIdAsiento().equals(idAsientoComprado)) {
                                         // Aquí se actualiza el asiento
                                         asientoVisual.setEstado(estadoOcupacion);
-                                        asientoEncontradoMapa = true;
-                                        System.out.println("     ¡ÉXITO! Asiento " + idAsientoComprado + " pintado de " + estadoOcupacion);
                                     }
                                 }
                             }
-                        }
-
-                        if (!asientoEncontradoMapa) {
-                            System.out.println("El asiento [" + idAsientoComprado + "] NO coincide con los que se dibujan en el mapa.");
                         }
                     }
                 }
             }
         }
-        System.out.println("--- FIN SINCRONIZACIÓN ---\n");
     }
 
     public void dibujarMapaVisual() {

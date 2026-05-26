@@ -1,51 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="579.0" prefWidth="839.0" styleClass="content" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.GestionarComprasController">
+<AnchorPane prefHeight="604.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.GestionarComprasController">
     <children>
-        <Label layoutX="30.0" layoutY="20.0" prefHeight="29.0" prefWidth="154.0" styleClass="tittle" text="Gestión de Compras" textFill="#4d5e9e">
+        <Label layoutX="30.0" layoutY="20.0" text="Gestión de Compras" textFill="#4d5e9e">
             <font>
                 <Font name="System Bold" size="28.0" />
             </font>
         </Label>
 
-        <TableView fx:id="tvCompras" layoutX="30.0" layoutY="70.0" prefHeight="220.0" prefWidth="797.0">
+        <TableView fx:id="tvCompras" layoutX="30.0" layoutY="70.0" prefHeight="220.0" prefWidth="686.0">
             <columns>
                 <TableColumn fx:id="colIdCompra" prefWidth="90.0" text="ID Compra" />
                 <TableColumn fx:id="colCliente" prefWidth="150.0" text="Cliente" />
                 <TableColumn fx:id="colEvento" prefWidth="150.0" text="Evento" />
                 <TableColumn fx:id="colFecha" prefWidth="120.0" text="Fecha" />
-                <TableColumn fx:id="colEstado" prefWidth="152.0" text="Estado" />
-                <TableColumn fx:id="colTotal" prefWidth="135.0" text="Total" />
+                <TableColumn fx:id="colEstado" prefWidth="90.0" text="Estado" />
+                <TableColumn fx:id="colTotal" prefWidth="85.0" text="Total" />
             </columns>
         </TableView>
 
-        <Label layoutX="30.0" layoutY="310.0" style="-fx-font-weight: bold;" text="Entradas de la Compra Seleccionada:" />
+        <Label layoutX="30.0" layoutY="310.0" text="Entradas de la Compra Seleccionada:" style="-fx-font-weight: bold;"/>
 
-        <TableView fx:id="tvEntradas" layoutX="30.0" layoutY="340.0" prefHeight="220.0" prefWidth="582.0">
+        <TableView fx:id="tvEntradas" layoutX="30.0" layoutY="340.0" prefHeight="220.0" prefWidth="450.0">
             <columns>
                 <TableColumn fx:id="colIdEntrada" prefWidth="100.0" text="ID Entrada" />
                 <TableColumn fx:id="colZona" prefWidth="120.0" text="Zona" />
-                <TableColumn fx:id="colAsiento" prefWidth="182.0" text="Asiento" />
-                <TableColumn fx:id="colPrecio" prefWidth="180.0" text="Precio Base" />
+                <TableColumn fx:id="colAsiento" prefWidth="100.0" text="Asiento" />
+                <TableColumn fx:id="colPrecio" prefWidth="120.0" text="Precio Base" />
             </columns>
         </TableView>
 
-        <VBox layoutX="619.0" layoutY="340.0" prefWidth="206.0" spacing="15.0" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 15;" styleClass="card">
-            <Label style="-fx-font-weight: bold;" text="Acciones Administrativas" />
+        <VBox layoutX="510.0" layoutY="340.0" spacing="15.0" prefWidth="206.0" style="-fx-border-color: #ccc; -fx-border-radius: 5; -fx-padding: 15;">
+            <Label text="Acciones Administrativas" style="-fx-font-weight: bold;"/>
 
-            <Button fx:id="btnReasignar" disable="true" onAction="#onReasignarAsiento" prefWidth="180.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" styleClass="btn" text="Reasignar Asiento" />
+            <Button fx:id="btnReasignar" text="Reasignar Asiento" onAction="#onReasignarAsiento" prefWidth="180.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" disable="true"/>
 
-            <Button fx:id="btnCancelar" disable="true" onAction="#onCancelarCompra" prefWidth="180.0" style="-fx-background-color: #f44336; -fx-text-fill: white;" styleClass="btn" text="Cancelar Compra" />
+            <Button fx:id="btnCancelar" text="Cancelar Compra" onAction="#onCancelarCompra" prefWidth="180.0" style="-fx-background-color: #f44336; -fx-text-fill: white;" disable="true"/>
 
-            <Button fx:id="btnReembolso" disable="true" onAction="#onSimularReembolso" prefWidth="180.0" style="-fx-background-color: #FF9800; -fx-text-fill: white;" styleClass="btn" text="Simular Reembolso" />
+            <Button fx:id="btnReembolso" text="Simular Reembolso" onAction="#onSimularReembolso" prefWidth="180.0" style="-fx-background-color: #FF9800; -fx-text-fill: white;" disable="true"/>
         </VBox>
     </children>
 </AnchorPane>

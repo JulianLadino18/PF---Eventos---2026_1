@@ -111,4 +111,28 @@ public class EntradaRepository {
         }
         return null;
     }
+
+    public void actualizarArchivoEntradas() throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaEntradas))) {
+            for (Entrada e : listaEntradas) {
+                //Validar el asiento
+                String idAsiento;
+                if (e.getAsiento() != null) {
+                    idAsiento = e.getAsiento().getIdAsiento();
+                } else {
+                    idAsiento = "NULL";
+                }
+                //Reconstruir la línea con las 5 entradas esperadas
+                String linea = e.getIdEntrada() + "@@@" +
+                        e.getZona().getIdZona() + "@@@" +
+                        idAsiento + "@@@" +
+                        e.getEstado() + "@@@" +
+                        e.getDescripcion();
+
+                //Escribir y saltar de línea
+                writer.write(linea);
+                writer.newLine();
+            }
+        }
+    }
 }

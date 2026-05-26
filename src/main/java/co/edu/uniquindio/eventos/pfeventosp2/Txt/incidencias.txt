@@ -1,3 +1,5 @@
 INC-001@@@TECNICA@@@Error al procesar el pago con Nequi@@@2026-05-01T14:32:00.500@@@COMPRA@@@COM-001
 INC-002@@@LOGISTICA@@@Retraso en la apertura de puertas del estadio@@@2026-05-10T18:00@@@EVENTO@@@E001
 INC-003@@@TECNICA@@@El usuario no pudo recuperar su contraseña@@@2026-05-11T08:20:15.123@@@USUARIO@@@2002
+INC-004@@@LOGISTICA@@@Cambio automático: El evento 'Concierto Rock Quindio' cambió a estado 'Borrador'.@@@2026-05-26T00:39:48.345694700@@@EVENTO@@@E001
+INC-005@@@LOGISTICA@@@Cambio automático: El evento 'Concierto Rock Quindio' cambió a estado 'Publicado'.@@@2026-05-26T00:39:56.163010900@@@EVENTO@@@E001

@@ -137,7 +137,7 @@ public class IncidenciasController {
                 "Entidad Afectada: " + seleccionado.getTipoEntidadAfectada() + " (" + seleccionado.getIdEntidadAfectada() + ")\n\n" +
                 "Descripción:\n" + seleccionado.getDescripcion();
 
-        //Crear la alerta, se hizo sin el mostrar mensaje para poder volver más grande la alerta
+        //Crear la alerta, se hizo sin el mostrar meensaje para poder volver más grande la alerta
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Detalle de Incidencia");
         alert.setHeaderText(null);

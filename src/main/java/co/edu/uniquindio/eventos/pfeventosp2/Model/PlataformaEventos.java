@@ -3,10 +3,11 @@ package co.edu.uniquindio.eventos.pfeventosp2.Model;
 import co.edu.uniquindio.eventos.pfeventosp2.Repository.*;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlataformaEventos {
+public class PlataformaEventos implements ObservadorEvento{
     //atributos
     //patrón singleton
     private static PlataformaEventos instancia;
@@ -51,12 +52,10 @@ public class PlataformaEventos {
             for (Recinto r : listaRecintos) {
                 todasLasZonas.addAll(r.getZonas());
             }
-
-            List<Entrada> todasLasEntradas = EntradaRepository.getInstance().cargarEntradas(todasLasZonas);
-            System.out.println("DEBUG: Se cargaron " + todasLasEntradas.size() + " entradas desde el archivo.");
-            for(Entrada e : todasLasEntradas) {
-                System.out.println("   Entrada cargada: " + e.getIdEntrada());
+            for (Evento e : listaEventos) {
+                e.agregarObservador(this);
             }
+            List<Entrada> todasLasEntradas = EntradaRepository.getInstance().cargarEntradas(todasLasZonas);
             //Cargamos las compras desde el txt pasando las listas y se vincula al usuario
             CompraRepository.getInstance().cargarCompras(usuarios, listaEventos, todasLasEntradas);
             vincularComprasAUsuarios();
@@ -185,5 +184,36 @@ public class PlataformaEventos {
         asiento.setEstado("BLOQUEADO");
         //Guardar en el archivo de bloqueos
         BloqueoRepository.getInstance().guardarBloqueo(asiento.getIdAsiento());
+    }
+
+    //Método para desblquear un asiento bloqueado
+    public void desbloquearAsiento(Zona zona, Asiento asiento) throws IOException {
+        //Cambiar estado en memoria
+        asiento.setEstado("DISPONIBLE");
+        //Eliminar del archivo txt de bloqueos
+        BloqueoRepository.getInstance().eliminarBloqueo(asiento.getIdAsiento());
+    }
+
+    @Override
+    public void notificarCambio(String nombreEvento, String nuevoEstado) {
+        try {
+            //Buscar el evento para obtener su id
+            String idEvento = "Desconocido";
+            for (Evento e : listaEventos) {
+                if (e.getNombre().equals(nombreEvento)) {
+                    idEvento = e.getIdEvento();
+                    break;
+                }
+            }
+            //Guardar incidencia
+            IncidenciaRepository repo = IncidenciaRepository.getInstance();
+            int numSiguiente = repo.cargarIncidencias().size() + 1;
+            String idIncidencia = String.format("INC-%03d", numSiguiente);
+            String desc = "Cambio automático: El evento '" + nombreEvento + "' cambió a estado '" + nuevoEstado + "'.";
+
+            repo.guardarIncidencia(new Incidencia(idIncidencia, TipoIncidencia.LOGISTICA, desc, TipoEntidad.EVENTO, idEvento));
+        } catch (Exception e) {
+            System.err.println("Error al registrar incidencia: " + e.getMessage());
+        }
     }
 }
