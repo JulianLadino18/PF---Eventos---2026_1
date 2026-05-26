@@ -17,7 +17,9 @@ public abstract class Persona {
             this.password = password;
         }
 
-        //método para autenticar usuario
+    public Persona() {}
+
+    //método para autenticar usuario
         public boolean autenticar(String correo, String password) {
             return this.correo.equals(correo) && this.password.equals(password);
         }

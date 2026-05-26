@@ -70,6 +70,89 @@ public class EventoRepository {
         return lista;
     }
 
+    public void actualizarEvento(Evento eventoActualizado) throws IOException {
+        File file = new File(rutaEventos);
+        if (!file.exists()) return; //Si no hay archivo, no hay nada que actualizar
+
+        List<String> lineasModificadas = new ArrayList<>();
+        boolean encontrado = false;
+
+        //Leer todo el archivo línea por línea en memoria
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split("@@@");
+                //Verificar si el ID coincide
+                if (datos.length > 0 && datos[0].equals(eventoActualizado.getIdEvento())) {
+                    encontrado = true;
+                    //Reconstruir la línea con el NUEVO estado.
+                    //Usamos el mismo formato definido en tu método guardarEvento.
+                    String lineaNueva = eventoActualizado.getIdEvento() + "@@@" +
+                            eventoActualizado.getNombre() + "@@@" +
+                            eventoActualizado.getCategoria() + "@@@" +
+                            eventoActualizado.getDescripcion() + "@@@" +
+                            eventoActualizado.getCiudad() + "@@@" +
+                            eventoActualizado.getFecha() + "@@@" +
+                            eventoActualizado.getHora() + "@@@" +
+                            eventoActualizado.getPolitica().getClass().getSimpleName() + "@@@" +
+                            eventoActualizado.getRecinto().getIdRecinto() + "@@@" +
+                            eventoActualizado.getEstado();
+                    lineasModificadas.add(lineaNueva);
+                } else {
+                    // Si el ID no coincide, mantenemos la línea original sin cambios
+                    lineasModificadas.add(linea);
+                }
+            }
+        }
+
+        if (!encontrado) {
+            throw new IOException("No se encontró el evento con ID: " + eventoActualizado.getIdEvento());
+        }
+
+        //Sobrescribir el archivo completo con las líneas modificadas
+        //False indica sobrescribir
+        try (PrintWriter pw = new PrintWriter(new FileWriter(file, false))) {
+            for (String l : lineasModificadas) {
+                pw.println(l);
+            }
+        }
+    }
+
+    // Método para eliminar un evento del archivo TXT
+    public void eliminarEventoEnArchivo(String idEvento) throws IOException {
+        File file = new File(rutaEventos);
+        if (!file.exists()) return;
+
+        List<String> lineasRestantes = new ArrayList<>();
+        boolean encontrado = false;
+
+        //Leer el archivo y omitir la línea que coincida con el ID
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.trim().isEmpty()) continue;
+                String[] datos = linea.split("@@@");
+
+                if (datos.length > 0 && datos[0].equals(idEvento)) {
+                    encontrado = true; //Encontramos el evento
+                } else {
+                    lineasRestantes.add(linea); //Conservamos los demás eventos
+                }
+            }
+        }
+
+        if (!encontrado) {
+            throw new IOException("No se encontró el evento a eliminar en el archivo.");
+        }
+
+        //Sobrescribir el archivo solo con las líneas restantes
+        try (PrintWriter pw = new PrintWriter(new FileWriter(file, false))) {
+            for (String l : lineasRestantes) {
+                pw.println(l);
+            }
+        }
+    }
+
     private PoliticaCancelacion crearPolitica(String nombre) {
         if (nombre.equals("ReembolsoTotal")) return new ReembolsoTotal();
         return new SinReembolso(); // Por defecto

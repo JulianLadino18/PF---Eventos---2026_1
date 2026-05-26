@@ -38,6 +38,19 @@ public class Asiento {
         return estado;
     }
 
+    public void setIdAsiento(String idAsiento) {
+        this.idAsiento = idAsiento;
+    }
+    public void setFila(String fila) {
+        this.fila = fila;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
         return "Asiento{" +

@@ -31,6 +31,8 @@ public abstract class Entrada {
         return estado;
     }
 
+
+
     //métodos abstractos que el decorator va a modificar
     public abstract double getPrecioFinal();
     public abstract String getDescripcion();

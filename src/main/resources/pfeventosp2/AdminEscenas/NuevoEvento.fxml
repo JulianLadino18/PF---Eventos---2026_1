@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="466.0" prefWidth="531.0" styleClass="sidebar" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.NuevoEventoController">
+    <!-- Título -->
+    <Text fill="WHITE" layoutX="63.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tittle" text="Nuevo Evento" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <font>
+            <Font name="System Bold" size="37.0" />
+        </font>
+    </Text>
+
+    <!-- Botones de Acción -->
+    <Button fx:id="cancelarButton" layoutX="530.0" layoutY="484.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="30.0" prefWidth="31.0" styleClass="btn" text="x" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+    <Button fx:id="crearButton" layoutX="640.0" layoutY="484.0" mnemonicParsing="false" onAction="#onCrear" styleClass="btn" text="Crear Evento" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+   <VBox layoutX="31.0" layoutY="63.0" prefHeight="474.0" prefWidth="447.0">
+      <children>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+            
+                <!-- Etiquetas (Labels) -->
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="ID del Evento:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+            
+                <!-- Campos de Entrada (Inputs) -->
+                <!-- CAMBIO: Ahora el ID es un TextField para poder ingresar el nuevo código -->
+                <TextField fx:id="idField" prefHeight="26.0" prefWidth="348.0" promptText="Ej: E002" />
+            </children>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nombre del Evento:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+            
+                <TextField fx:id="nombreField" prefHeight="26.0" prefWidth="320.0" />
+            </children>
+            <opaqueInsets>
+               <Insets bottom="5.0" />
+            </opaqueInsets>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Categoría:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+                <ComboBox fx:id="categoriaComboB" prefWidth="375.0" styleClass="btn" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Descripción:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+            
+                <!-- CAMBIO: Corregido el nombre a descripcionField -->
+                <TextField fx:id="descripcionField" prefHeight="54.0" prefWidth="475.0" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Ciudad:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+            
+                <TextField fx:id="ciudadField" prefHeight="26.0" prefWidth="388.0" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+            
+                <!-- Sección de Fecha y Hora -->
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Fecha:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+                <DatePicker fx:id="datePicker" prefWidth="428.0" styleClass="btn" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Hora:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+                <Text fill="#4c3984" strokeType="OUTSIDE" strokeWidth="0.0" text="HH:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Text>
+                <ComboBox fx:id="horaComboB" prefHeight="30.0" prefWidth="170.0" styleClass="btn" />
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="MM:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Text>
+                <ComboBox fx:id="minutoComboB" prefHeight="30.0" prefWidth="178.0" styleClass="btn" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+            
+                <!-- Sección de Política y Recinto -->
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Política Cancelación:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+                <ComboBox fx:id="politicaComboB" prefHeight="30.0" prefWidth="309.0" styleClass="btn" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="438.0">
+            <children>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Recinto:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+                </Text>
+                <ComboBox fx:id="recintoComboB" prefHeight="30.0" prefWidth="390.0" styleClass="btn" />
+            </children>
+            <VBox.margin>
+               <Insets bottom="5.0" />
+            </VBox.margin>
+         </HBox>
+      </children>
+   </VBox>
+</AnchorPane>

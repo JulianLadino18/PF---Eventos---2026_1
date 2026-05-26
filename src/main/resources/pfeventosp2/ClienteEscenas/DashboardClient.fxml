@@ -1,41 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientDashboardController">
-   <children>
-      <VBox layoutX="23.0" layoutY="30.0" prefHeight="660.0" prefWidth="270.0" style="-fx-background-color: #919399; -fx-alignment: top_center; -fx-spacing: 15;">
+<BorderPane prefHeight="720.0" prefWidth="1080.0" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientDashboardController">
+   <top>
+      <HBox prefHeight="63.0" prefWidth="1080.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
-            <Region prefHeight="80.0" prefWidth="168.0" />
-            <Button mnemonicParsing="false" onAction="#onGoEvents" prefHeight="50.0" prefWidth="168.0" text="EVENTOS" textAlignment="CENTER">
+            <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Estilos/Imagenes/logo.png" />
+               </image>
+            </ImageView>
+            <Button mnemonicParsing="false" onAction="#onGoEvents" prefHeight="0.0" prefWidth="168.0" styleClass="btn-header" text="EVENTOS" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </Button>
-            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onGoHistory" prefHeight="50.0" prefWidth="168.0" text="HISTORIAL" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="23.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#onGoProfile" prefHeight="50.0" prefWidth="168.0" text="PERFIL" textAlignment="CENTER">
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" styleClass="btn-header" text="HISTORIAL" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
+               <HBox.margin>
+                  <Insets right="550.0" />
+               </HBox.margin>
             </Button>
-            <Region prefHeight="227.0" prefWidth="270.0" />
-            <Button mnemonicParsing="false" onAction="#onCloseDashboard" prefHeight="50.0" prefWidth="168.0" text="CERRAR SESION" textAlignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#onCloseDashboard" prefHeight="50.0" prefWidth="50.0" styleClass="btn-profile" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <graphic>
+                  <SVGPath content="M7.04401 9.53165C7.33763 9.23949 7.33881 8.76462 7.04665 8.47099C6.75449 8.17737 6.27962 8.17619 5.98599 8.46835L7.04401 9.53165ZM2.97099 11.4683C2.67737 11.7605 2.67619 12.2354 2.96835 12.529C3.26051 12.8226 3.73538 12.8238 4.02901 12.5317L2.97099 11.4683ZM4.02901 11.4683C3.73538 11.1762 3.26051 11.1774 2.96835 11.471C2.67619 11.7646 2.67737 12.2395 2.97099 12.5317L4.02901 11.4683ZM5.98599 15.5317C6.27962 15.8238 6.75449 15.8226 7.04665 15.529C7.33881 15.2354 7.33763 14.7605 7.04401 14.4683L5.98599 15.5317ZM3.5 11.25C3.08579 11.25 2.75 11.5858 2.75 12C2.75 12.4142 3.08579 12.75 3.5 12.75V11.25ZM17.5 12.75C17.9142 12.75 18.25 12.4142 18.25 12C18.25 11.5858 17.9142 11.25 17.5 11.25V12.75ZM5.98599 8.46835L2.97099 11.4683L4.02901 12.5317L7.04401 9.53165L5.98599 8.46835ZM2.97099 12.5317L5.98599 15.5317L7.04401 14.4683L4.02901 11.4683L2.97099 12.5317ZM3.5 12.75L17.5 12.75V11.25L3.5 11.25V12.75Z M9.5 15C9.5 17.2091 11.2909 19 13.5 19H17.5C19.7091 19 21.5 17.2091 21.5 15V9C21.5 6.79086 19.7091 5 17.5 5H13.5C11.2909 5 9.5 6.79086 9.5 9" fillRule="EVEN_ODD" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.5" />
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onGoProfile" prefHeight="50.0" prefWidth="50.0" styleClass="btn-profile" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+               <graphic>
+                  <SVGPath content="M15.25 7.75C15.25 9.26878 14.0188 10.5 12.5 10.5C10.9812 10.5 9.75 9.26878 9.75 7.75C9.75 6.23122 10.9812 5 12.5 5C14.0188 5 15.25 6.23122 15.25 7.75ZM7.74967 15.7338C7.73738 15.3197 7.39179 14.994 6.97775 15.0063C6.56372 15.0186 6.23804 15.3642 6.25033 15.7782L7.74967 15.7338ZM10.385 18.95V18.2C10.3779 18.2 10.3708 18.2001 10.3637 18.2003L10.385 18.95ZM14.615 18.95L14.6363 18.2003C14.6292 18.2001 14.6221 18.2 14.615 18.2V18.95ZM18.7497 15.7782C18.762 15.3642 18.4363 15.0186 18.0222 15.0063C17.6082 14.994 17.2626 15.3197 17.2503 15.7338L18.7497 15.7782ZM17.2503 15.6332C17.2626 16.0473 17.6082 16.373 18.0222 16.3607C18.4363 16.3484 18.762 16.0028 18.7497 15.5888L17.2503 15.6332ZM14.615 12.417V13.167C14.6221 13.167 14.6292 13.1669 14.6363 13.1667L14.615 12.417ZM10.385 12.417L10.3637 13.1667C10.3708 13.1669 10.3779 13.167 10.385 13.167V12.417ZM6.25033 15.5888C6.23804 16.0028 6.56372 16.3484 6.97775 16.3607C7.39179 16.373 7.73738 16.0473 7.74967 15.6332L6.25033 15.5888ZM6.25033 15.7782C6.3165 18.0081 8.17632 19.763 10.4063 19.6997L10.3637 18.2003C8.9611 18.2401 7.79129 17.1363 7.74967 15.7338L6.25033 15.7782ZM10.385 19.7H14.615V18.2H10.385V19.7ZM14.5937 19.6997C16.8237 19.763 18.6835 18.0081 18.7497 15.7782L17.2503 15.7338C17.2087 17.1363 16.0389 18.2401 14.6363 18.2003L14.5937 19.6997ZM18.7497 15.5888C18.6835 13.3589 16.8237 11.604 14.5937 11.6673L14.6363 13.1667C16.0389 13.1269 17.2087 14.2307 17.2503 15.6332L18.7497 15.5888ZM14.615 11.667H10.385V13.167H14.615V11.667ZM10.4063 11.6673C8.17632 11.604 6.3165 13.3589 6.25033 15.5888L7.74967 15.6332C7.79129 14.2307 8.9611 13.1269 10.3637 13.1667L10.4063 11.6673Z" fillRule="EVEN_ODD" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.5" />
+               </graphic>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
             </Button>
          </children>
-      </VBox>
-      <AnchorPane fx:id="contenedorC" layoutX="328.0" layoutY="95.0" prefHeight="596.0" prefWidth="721.0" />
-      <Label layoutX="332.0" layoutY="40.0" text="Pagina Inicio" textFill="RED">
-         <font>
-            <Font name="System Bold" size="29.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane prefHeight="596.0" prefWidth="721.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="48.0" layoutY="-1.0" prefHeight="250.0" prefWidth="1080.0" styleClass="login-bg" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="250.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@../Estilos/Imagenes/Pattern2.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="250.0" width="1080.0" />
+                     </viewport>
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
+                  </ImageView>
+                  <ImageView fitHeight="250.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Estilos/Imagenes/Public.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="250.0" minY="200.0" width="1080.0" />
+                     </viewport>
+                     <effect>
+                        <ColorAdjust contrast="-0.25" saturation="-1.0" />
+                     </effect>
+                  </ImageView>
+                  <Pane layoutX="359.0" layoutY="34.0" prefHeight="250.0" prefWidth="1080.0" styleClass="login-card" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="22.0" layoutY="92.0" prefHeight="70.0" prefWidth="617.0" style="-fx-font-size: 48px;" styleClass="login-specialtext" text="Oro">
+                           <font>
+                              <Font size="1.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="207.0" fitWidth="220.0" layoutX="840.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Estilos/Imagenes/logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <Label layoutX="24.0" layoutY="44.0" prefHeight="70.0" prefWidth="617.0" style="-fx-font-size: 48px;" styleClass="login-text" text="Tus experiencias valen ">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="-7.0" layoutY="256.0" prefHeight="410.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

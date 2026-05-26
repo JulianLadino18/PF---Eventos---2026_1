@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="596.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientsEventsController">
+<AnchorPane prefHeight="410.0" prefWidth="1080.0" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.ClientsEventsController">
    <children>
-      <TableView fx:id="EventsTable" layoutX="14.0" layoutY="112.0" prefHeight="392.0" prefWidth="318.0">
+      <TableView fx:id="EventsTable" layoutX="14.0" layoutY="112.0" prefHeight="230.0" prefWidth="676.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
@@ -28,41 +28,37 @@
             <TableColumn fx:id="colState" prefWidth="96.79998779296875" text="Estado" />
         </columns>
       </TableView>
-      <HBox layoutX="14.0" layoutY="65.0" prefHeight="30.0" prefWidth="698.0" spacing="10.0">
+      <HBox layoutX="14.0" layoutY="65.0" prefHeight="31.0" prefWidth="781.0" spacing="10.0">
          <children>
             <TextField fx:id="txtCity" prefWidth="160.0" promptText="Buscar por ciudad..." />
 
-            <ComboBox fx:id="comboCategory" prefWidth="150.0" promptText="Categoría" />
+            <ComboBox fx:id="comboCategory" prefWidth="150.0" promptText="Categoría" styleClass="btn" />
 
-            <DatePicker fx:id="txtDate" prefWidth="150.0" promptText="Fecha del evento" />
+            <DatePicker fx:id="txtDate" prefHeight="31.0" prefWidth="186.0" promptText="Fecha del evento" styleClass="btn" />
 
             <TextField fx:id="txtPrice" prefWidth="140.0" promptText="Precio máximo" />
 
-            <Button fx:id="btnClear" onAction="#onClear" style="-fx-background-color: red; -fx-text-fill: white;" text="Limpiar" />
+            <Button fx:id="btnClear" onAction="#onClear" style="-fx-background-color: red; -fx-text-fill: white;" styleClass="btn" text="Limpiar" />
          </children>
       </HBox>
-      <Label layoutX="14.0" layoutY="14.0" text="Eventos Disponibles" textFill="#0009ff">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="345.0" layoutY="112.0" prefHeight="458.0" prefWidth="366.0">
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="39.0" prefWidth="275.0" styleClass="tittle-dark" text="Eventos Disponibles" />
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="697.0" layoutY="105.0" prefHeight="284.0" prefWidth="366.0" AnchorPane.bottomAnchor="21.0">
          <content>
-            <VBox prefHeight="456.0" prefWidth="325.0" style="-fx-padding: 15; -fx-spacing: 15;">
+            <VBox prefHeight="445.0" prefWidth="351.0" style="-fx-padding: 15; -fx-spacing: 15;">
                <children>
-                  <Label fx:id="lblPrincipal" text="name">
+                  <Label fx:id="lblPrincipal" styleClass="text-dark" text="name">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
                   <HBox prefHeight="22.0" prefWidth="252.0">
                      <children>
-                        <Label text="Categoria: ">
+                        <Label styleClass="text-dark" text="Categoria: ">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblCategory" text="......">
+                        <Label fx:id="lblCategory" styleClass="text-dark" text="......">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -71,12 +67,12 @@
                   </HBox>
                   <HBox prefHeight="22.0" prefWidth="252.0">
                      <children>
-                        <Label text="Estado: ">
+                        <Label styleClass="text-dark" text="Estado: ">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblState" text="....">
+                        <Label fx:id="lblState" styleClass="text-dark" text="....">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -93,42 +89,42 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Fecha y Hora: ">
+                        <Label styleClass="text-dark" text="Fecha y Hora: ">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblDate" text="...." wrapText="true" GridPane.columnIndex="1" />
-                        <Label text="Lugar: " GridPane.rowIndex="1">
+                        <Label fx:id="lblDate" styleClass="text-dark" text="...." wrapText="true" GridPane.columnIndex="1" />
+                        <Label styleClass="text-dark" text="Lugar: " GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblPlace" text="...." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lblPlace" styleClass="text-dark" text="...." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <Label text="Descripción">
+                  <Label styleClass="text-dark" text="Descripción">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblDescription" text="...." wrapText="true" />
-                  <Label text="Zonas y Precios">
+                  <Label fx:id="lblDescription" styleClass="text-dark" text="...." wrapText="true" />
+                  <Label styleClass="text-dark" text="Zonas y Precios">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                   <VBox fx:id="vBZonas" prefHeight="34.0" prefWidth="334.0" />
-                  <Label text="Políticas de Cancelación">
+                  <Label styleClass="text-dark" text="Políticas de Cancelación">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPolitics" text="............." wrapText="true" />
+                  <Label fx:id="lblPolitics" styleClass="text-dark" text="............." wrapText="true" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <Button fx:id="btnBuy" layoutX="14.0" layoutY="534.0" onAction="#onBuy" style="-fx-background-color: green; -fx-text-fill: white;" text="Comprar" />
+      <Button fx:id="btnBuy" layoutX="14.0" layoutY="534.0" onAction="#onBuy" styleClass="btn" text="Comprar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
    </children>
 </AnchorPane>

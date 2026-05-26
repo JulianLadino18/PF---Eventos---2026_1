@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="450.0" prefWidth="400.0" styleClass="sidebar" stylesheets="@../Estilos/Estilos.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.eventos.pfeventosp2.Controller.NuevoUsuarioController">
+    <Text fill="WHITE" layoutX="40.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tittle" text="Nuevo Usuario" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <font>
+            <Font name="System Bold" size="26.0" />
+        </font>
+    </Text>
+
+    <TextField fx:id="idField" layoutX="150.0" layoutY="80.0" prefWidth="200.0" promptText="Identificación" />
+    <TextField fx:id="nombreField" layoutX="150.0" layoutY="130.0" prefWidth="200.0" promptText="Nombre completo" />
+    <TextField fx:id="correoField" layoutX="150.0" layoutY="180.0" prefWidth="200.0" promptText="Correo electrónico" />
+    <TextField fx:id="telefonoField" layoutX="150.0" layoutY="230.0" prefWidth="200.0" promptText="Teléfono" />
+    <TextField fx:id="passwordField" layoutX="150.0" layoutY="280.0" prefWidth="200.0" promptText="Contraseña" />
+
+    <Button fx:id="cancelarButton" layoutX="150.0" layoutY="350.0" mnemonicParsing="false" onAction="#onCancelar" prefHeight="30.0" prefWidth="30.0" styleClass="btn" text="X" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+    <Button fx:id="guardarButton" layoutX="250.0" layoutY="350.0" mnemonicParsing="false" onAction="#onGuardar" prefWidth="100.0" styleClass="btn" text="Registrar" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
+   <Text fill="WHITE" layoutX="16.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="ID Usuario:">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="14.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nombre Completo:">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="14.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Correo Electrónico:">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="14.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Teléfono:">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Text>
+   <Text fill="WHITE" layoutX="14.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Contraseña:">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Text>
+</AnchorPane>
